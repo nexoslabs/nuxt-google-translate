@@ -4,6 +4,7 @@
     <select
       id="language-select"
       v-model="selectedLanguage"
+      :disabled="!isLoaded"
       @change="changeLanguage"
     >
       <option
@@ -14,47 +15,38 @@
         {{ getLanguageName(lang) }}
       </option>
     </select>
+    <p v-if="!isLoaded">
+      Loading translator...
+    </p>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, watch } from 'vue'
+<script lang="ts" setup>
+import { ref, watch } from 'vue'
 import { useGoogleTranslate } from '../composables/useGoogleTranslate'
 
-export default defineComponent({
-  name: 'LanguageSelector',
-  setup() {
-    const { activeLanguage, setLanguage, supportedLanguages } = useGoogleTranslate()
-    const selectedLanguage = ref(activeLanguage.value)
+const { activeLanguage, supportedLanguages, setLanguage, isLoaded } = useGoogleTranslate()
+const selectedLanguage = ref(activeLanguage.value)
 
-    watch(activeLanguage, (newLang) => {
-      selectedLanguage.value = newLang
-    })
-
-    const changeLanguage = () => {
-      setLanguage(selectedLanguage.value)
-    }
-
-    const getLanguageName = (langCode: string) => {
-      const languageNames: Record<string, string> = {
-        en: 'English',
-        es: 'Español',
-        fr: 'Français',
-        hi: 'हिन्दी',
-        zh: '中文',
-        de: 'Deutsch',
-      }
-      return languageNames[langCode] || langCode
-    }
-
-    return {
-      selectedLanguage,
-      supportedLanguages,
-      changeLanguage,
-      getLanguageName,
-    }
-  },
+watch(activeLanguage, (newLang) => {
+  selectedLanguage.value = newLang
 })
+
+const changeLanguage = () => {
+  setLanguage(selectedLanguage.value)
+}
+
+const getLanguageName = (langCode: string) => {
+  const languageNames: Record<string, string> = {
+    en: 'English',
+    es: 'Español',
+    fr: 'Français',
+    hi: 'हिन्दी',
+    zh: '中文',
+    de: 'Deutsch',
+  }
+  return languageNames[langCode] || langCode
+}
 </script>
 
 <style scoped>

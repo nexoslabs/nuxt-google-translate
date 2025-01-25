@@ -1,28 +1,28 @@
 <template>
-  <div id="google_translate_element" />
+  <!--
+    This div will be replaced by the Google Translate widget
+    The id must match the one specified in the plugin
+  -->
+  <div id="nuxt_translate_element" />
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'GoogleTranslate',
-})
+<script lang="ts" setup>
+// This component doesn't require any additional setup logic
+// The Google Translate widget will be injected into the div by the plugin
 </script>
 
 <style scoped>
-/* Styling for the translate element */
-#google_translate_element {
-  margin: 20px 0;
-  text-align: center;
-}
+/*
+  You can add custom styles here to modify the appearance of the Google Translate widget
+  For example:
 
-/* Hide the Google Translate banner */
-:global(.goog-te-banner-frame.skiptranslate) {
-  display: none !important;
-}
+  #nuxt_translate_element {
+    margin-top: 1rem;
+  }
 
-:global(body) {
-  top: 0 !important;
-}
+  // Hide the Google Translate attribution
+  .goog-te-gadget-simple {
+    display: none !important;
+  }
+*/
 </style>

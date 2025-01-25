@@ -1,144 +1,160 @@
-<!-- - **Title:** `nuxt-google-translate`
-- **Description:**  
-  A simple Nuxt module that integrates the Google Translate widget into your Nuxt.js application, allowing seamless multilingual support without requiring an API key.
+# Nuxt Google Translate
 
-- **Tags:**  
-  `nuxt`, `nuxt-module`, `google-translate`, `multilingual`, `translation`, `nuxt-widget`, `language-switcher` -->
-  
-# nuxt-google-translate
+[![npm](https://img.shields.io/npm/v/nuxt-google-translate)](https://www.npmjs.com/package/nuxt-google-translate)
+[![npm](https://img.shields.io/npm/dt/nuxt-google-translate)](https://www.npmjs.com/package/nuxt-google-translate)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/your-username/nuxt-google-translate/CI)]()
+[![GitHub](https://img.shields.io/github/license/your-username/nuxt-google-translate)](./LICENSE)
 
-[![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![License][license-src]][license-href]
-[![Nuxt][nuxt-src]][nuxt-href]
-
-A simple Nuxt module to integrate the Google Translate widget into your Nuxt.js application. Enable seamless multilingual support on your website without the need for a Google API key.
-
-- [✨ &nbsp;Release Notes](/CHANGELOG.md)
-- [🏀 Online playground](https://stackblitz.com/github/your-org/my-module?file=playground%2Fapp.vue) 
-- [📖 &nbsp;Documentation](https://example.com)
-
----
+Easily integrate Google Translate into your Nuxt 3 application with this powerful and customizable module.
 
 ## Features
 
-- Easy integration of the Google Translate widget
-- Automatic language detection and translation
-- Supports a wide range of languages
-- Lightweight and easy to customize
-- No API key or server setup required
-
----
+- 🌐 Seamless integration with Google Translate
+- 🚀 Easy to set up and use
+- 🎨 Customizable styling
+- 📱 Responsive design
+- 🔧 Configurable default language and supported languages
 
 ## Quick Setup
 
-Install the module to your Nuxt application with one command:
-
+1. Add `nuxt-google-translate` dependency to your project
 
 ```bash
-npm install nuxt-google-translate
-# or
-yarn add nuxt-google-translate
+# Using pnpm
+pnpm add -D nuxt-google-translate
+
+# Using yarn
+yarn add --dev nuxt-google-translate
+
+# Using npm
+npm install --save-dev nuxt-google-translate
 ```
 
-<!-- ```bash
-npx nuxi module add google-translate
-``` -->
+2. Add `nuxt-google-translate` to the `modules` section of `nuxt.config.ts`
 
-That's it! You can now use My Module in your Nuxt app ✨
 
----
+```javascript
+export default defineNuxtConfig({
+  modules: [
+    'nuxt-google-translate'
+  ]
+})
+```
+
+That's it! You can now use Nuxt Google Translate in your Nuxt app ✨
 
 ## Usage
 
-1. Add the module to your `nuxt.config.ts`:
+### Basic Usage
 
-```ts
-export default defineNuxtConfig({
-  modules: ['nuxt-google-translate'],
-});
-```
-
-2. (Optional) Configure the default language in `nuxt.config.ts`:
-
-```ts
-export default defineNuxtConfig({
-  modules: ['nuxt-google-translate'],
-  googleTranslate: {
-    defaultLanguage: 'en', // Set your default site language (e.g., 'en', 'fr', 'es')
-  },
-});
-```
-
-3. Use the widget in your application by including the `<GoogleTranslateWidget>` component in your layout or specific pages:
+Add the `<GoogleTranslate />` component to your layout or specific pages:
 
 ```vue
 <template>
   <div>
-    <GoogleTranslateWidget />
+    <GoogleTranslate />
+    <!-- Your page content -->
   </div>
 </template>
 ```
 
----
+### Configuration
 
-## Contribution
+You can configure the module in your `nuxt.config.ts`:
 
-<details>
-  <summary>Local development</summary>
-  
-  ```bash
-  # Install dependencies
-  npm install
-  
-  # Generate type stubs
-  npm run dev:prepare
-  
-  # Develop with the playground
-  npm run dev
-  
-  # Build the playground
-  npm run dev:build
-  
-  # Run ESLint
-  npm run lint
-  
-  # Run Vitest
-  npm run test
-  npm run test:watch
-  
-  # Release new version
-  npm run release
-  ```
+```javascript
+export default defineNuxtConfig({
+  modules: ['nuxt-google-translate'],
+  googleTranslate: {
+    defaultLanguage: 'en',
+    supportedLanguages: ['en', 'fr', 'es', 'de', 'ja']
+  }
+})
+```
 
-</details>
+### Using the Composable
 
----
+You can use the `useGoogleTranslate` composable in your components to programmatically change the language or access the current language:
 
-## License
+```vue
+<script setup>
+import { useGoogleTranslate } from '#imports'
 
-This project is licensed under the [MIT License](LICENSE).
+const { activeLanguage, setLanguage, supportedLanguages } = useGoogleTranslate()
+
+// Change the language
+const changeLanguage = (lang) => {
+  setLanguage(lang)
+}
+</script>
+
+<template>
+  <div>
+    <p>Current language: {{ activeLanguage }}</p>
+    <select @change="changeLanguage($event.target.value)">
+      <option v-for="lang in supportedLanguages" :key="lang" :value="lang">
+        {{ lang }}
+      </option>
+    </select>
+  </div>
+</template>
+```
+
+## Development
+
+```shellscript
+# Install dependencies
+npm install
+
+# Generate type stubs
+npm run dev:prepare
+
+# Develop with the playground
+npm run dev
+
+# Build the playground
+npm run dev:build
+
+# Run ESLint
+npm run lint
+
+# Run Vitest
+npm run test
+npm run test:watch
+
+# Release new version
+npm run release
+```
 
 ## Contributing
 
-Contributions are welcome! Feel free to open issues or submit pull requests to improve the module.
+Contributions are welcome! Please follow these steps to contribute:
 
----
+1. Fork the repository
+2. Create a new branch: `git checkout -b my-feature-branch`
+3. Make your changes and commit them: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-feature-branch`
+5. Submit a pull request
 
-### Questions or Feedback?
 
-If you have any questions or suggestions, please open an issue or submit a pull request. 🚀
+Please make sure to update tests as appropriate and adhere to the existing coding style.
+
+## Troubleshooting
+
+If you encounter any issues while using this module, please check the following:
+
+1. Ensure you're using the latest version of the module
+2. Check that you've correctly added the module to your `nuxt.config.ts`
+3. Verify that the `<GoogleTranslate />` component is properly placed in your layout or pages
+4. Check the browser console for any error messages
 
 
-<!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/m/nuxt-google-translate.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-version-href]: https://npmjs.com/package/nuxt-google-translate
+If you're still having problems, please [open an issue](https://github.com/your-username/nuxt-google-translate/issues/new) with a detailed description of the problem, your Nuxt version, and any relevant code snippets.
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-google-translate.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-downloads-href]: https://npm.chart.dev/nuxt-google-translate
+## License
 
-[license-src]: https://img.shields.io/npm/l/nuxt-google-translate.svg?style=flat&colorA=020420&colorB=00DC82
-[license-href]: https://npmjs.com/package/nuxt-google-translate
+[MIT License](./LICENSE)
 
-[nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js
-[nuxt-href]: https://nuxt.com
+## Questions or Feedback?
+
+If you have any questions, suggestions, or feedback, please don't hesitate to [open an issue](https://github.com/your-username/nuxt-google-translate/issues/new) or [submit a pull request](https://github.com/your-username/nuxt-google-translate/pulls). We appreciate your input and want to make this module as useful as possible for the Nuxt community. 🚀

@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   compatibilityDate: '2025-01-25',
   googleTranslate: {
-    defaultLanguage: 'hi', // Set your default language here
+    defaultLanguage: 'en',
+    supportedLanguages: ['en', 'gu', 'fr', 'hi', 'ru', 'es'], // Add or remove languages as needed
   },
 })

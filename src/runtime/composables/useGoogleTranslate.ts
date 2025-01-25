@@ -1,33 +1,37 @@
-import { ref, readonly } from 'vue'
-import { useRuntimeConfig } from '#app'
+import { useNuxtApp } from '#app'
 
-const SUPPORTED_LANGUAGES = ['en', 'es', 'fr', 'hi', 'zh', 'de'] as const
-type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number]
+/**
+ * Composable to access Google Translate functionality
+ * @returns {object} An object containing Google Translate state and methods
+ */
+export function useGoogleTranslate() {
+  // Access the Nuxt app instance to get the injected $googleTranslate object
+  const { $googleTranslate } = useNuxtApp()
 
-export function useGoogleTranslate(initialLanguage?: SupportedLanguage) {
-  const config = useRuntimeConfig()
-  const defaultLanguage = (config.public.googleTranslate?.defaultLanguage as SupportedLanguage) ?? 'en'
-
-  const activeLanguage = ref<SupportedLanguage>(initialLanguage || defaultLanguage)
-
-  const setLanguage = (lang: SupportedLanguage) => {
-    if (SUPPORTED_LANGUAGES.includes(lang)) {
-      activeLanguage.value = lang
-      // Trigger Google Translate to update the page
-      const googleTranslateElement = document.querySelector('.goog-te-combo') as HTMLSelectElement
-      if (googleTranslateElement) {
-        googleTranslateElement.value = lang
-        googleTranslateElement.dispatchEvent(new Event('change'))
-      }
-    }
-    else {
-      console.warn(`[nuxt-google-translate] Unsupported language: ${lang}. Using default.`)
-    }
-  }
-
+  // Return an object with Google Translate functionality
   return {
-    activeLanguage: readonly(activeLanguage),
-    setLanguage,
-    supportedLanguages: SUPPORTED_LANGUAGES,
+    /**
+     * Ref containing the currently active language
+     * @type {Ref<string>}
+     */
+    activeLanguage: $googleTranslate.activeLanguage,
+
+    /**
+     * Array of supported language codes
+     * @type {readonly string[]}
+     */
+    supportedLanguages: $googleTranslate.supportedLanguages,
+
+    /**
+     * Function to set the active language
+     * @param {string} lang - The language code to set
+     */
+    setLanguage: $googleTranslate.setLanguage,
+
+    /**
+     * Ref indicating whether the Google Translate script has been loaded
+     * @type {Ref<boolean>}
+     */
+    isLoaded: $googleTranslate.isLoaded,
   }
 }

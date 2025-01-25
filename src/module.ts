@@ -1,14 +1,16 @@
 import { defineNuxtModule, addComponent, addImports, addPlugin, createResolver } from '@nuxt/kit'
 import type { Nuxt } from '@nuxt/schema'
 
-// Module options TypeScript interface definition
+/**
+ * Module options interface
+ * @interface ModuleOptions
+ * @property {string} defaultLanguage - The default language for the translation
+ * @property {string[]} supportedLanguages - Array of supported language codes
+ */
 export interface ModuleOptions {
   defaultLanguage: string
+  supportedLanguages: string[]
 }
-
-// Supported languages
-const SUPPORTED_LANGUAGES = ['en', 'es', 'fr', 'hi', 'zh', 'de'] as const
-type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number]
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -18,50 +20,52 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt: '>=3.0.0',
     },
   },
-  // Default configuration options of the Nuxt module
+  // Default configuration options
   defaults: {
-    defaultLanguage: 'en' as SupportedLanguage,
+    defaultLanguage: 'en',
+    supportedLanguages: ['ar', 'cs', 'da', 'en', 'fi', 'fr', 'gu', 'hi', 'id', 'it', 'ja', 'ko', 'sk', 'sv', 'th', 'tr', 'uk', 'vi'],
   },
   setup(options, nuxt: Nuxt) {
     const { resolve } = createResolver(import.meta.url)
 
-    // Ensure valid language
-    if (!SUPPORTED_LANGUAGES.includes(options.defaultLanguage as SupportedLanguage)) {
+    // Validate the default language
+    if (!options.supportedLanguages.includes(options.defaultLanguage)) {
       throw new Error(
-        `[nuxt-google-translate] Unsupported defaultLanguage: '${options.defaultLanguage}'. Supported languages are: ${SUPPORTED_LANGUAGES.join(', ')}`,
+        `[nuxt-google-translate] Unsupported defaultLanguage: '${options.defaultLanguage}'. Supported languages are: ${options.supportedLanguages.join(', ')}`,
       )
     }
 
-    console.info('[nuxt-google-translate] Initializing with options:', options)
-
-    // Add styles
+    // Add module styles
     nuxt.options.css.push(resolve('./runtime/styles/main.css'))
 
-    // Add plugin
-    addPlugin(resolve('./runtime/plugin'))
-
-    // Add components
+    // Register the GoogleTranslate component
     addComponent({
       name: 'GoogleTranslate',
-      export: 'GoogleTranslate',
       filePath: resolve('./runtime/components/GoogleTranslate.vue'),
     })
     addComponent({
       name: 'LanguageSelector',
-      export: 'LanguageSelector',
       filePath: resolve('./runtime/components/LanguageSelector.vue'),
     })
 
-    // Add composables
+
+    // Register the useGoogleTranslate composable
     addImports({
       name: 'useGoogleTranslate',
       as: 'useGoogleTranslate',
       from: resolve('./runtime/composables/useGoogleTranslate'),
     })
 
-    // Provide runtime config
+    // Add the Google Translate plugin
+    addPlugin(resolve('./runtime/plugins/google-translate'))
+
+    // Provide runtime configuration
     nuxt.options.runtimeConfig.public.googleTranslate = {
       defaultLanguage: options.defaultLanguage,
-    }
+      supportedLanguages: options.supportedLanguages,
+    } as { defaultLanguage: string, supportedLanguages: string[] }
+
+    // Log initialization information
+    console.info('[nuxt-google-translate] Initializing with options:', options)
   },
 })
