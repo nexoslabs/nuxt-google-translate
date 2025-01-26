@@ -1,9 +1,13 @@
 # Nuxt Google Translate
 
-[![npm](https://img.shields.io/npm/v/nuxt-google-translate)](https://www.npmjs.com/package/nuxt-google-translate)
-[![npm](https://img.shields.io/npm/dt/nuxt-google-translate)](https://www.npmjs.com/package/nuxt-google-translate)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/nexoscreation/nuxt-google-translate/CI)]()
-[![GitHub](https://img.shields.io/github/license/nexoscreation/nuxt-google-translate)](./LICENSE)
+[![npm](https://img.shields.io/npm/v/nuxt-google-translate?style=flat-square&color=cyan)](https://www.npmjs.com/package/nuxt-google-translate)
+![GitHub Pages](https://img.shields.io/github/deployments/nexoscreation/nuxt-google-translate/github-pages.svg?style=flat-square&color=cyan)
+![GitHub Latest Release](https://img.shields.io/github/v/release/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)
+![GitHub License](https://img.shields.io/github/license/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)
+
+<!-- [![npm](https://img.shields.io/npm/dt/nuxt-google-translate)](https://www.npmjs.com/package/nuxt-google-translate)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/nexoscreation/nuxt-google-translate/ci)]() -->
 
 Easily integrate Google Translate into your Nuxt 3 application with this powerful and customizable module.
 
@@ -87,8 +91,9 @@ Add the `<LanguageSelector />` component to your header or specific elements:
 
 ### Using the Composable
 
-You can use the `useGoogleTranslate` composable in your components to programmatically change the language or access the current language:
+You can use the `useGoogleTranslate` composable in your components to programmatically change the language or access the current language and supported languages or is loading or not maybe:
 
+<!-- 
 ```vue
 <script setup>
 import { useGoogleTranslate } from '#imports'
@@ -111,7 +116,8 @@ const changeLanguage = (lang) => {
     </select>
   </div>
 </template>
-```
+``` 
+-->
 
 ## Development
 
