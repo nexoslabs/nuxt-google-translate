@@ -1,6 +1,10 @@
 # Changelog
 
 
+## v0.4.12
+
+[compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v0.4.11...v0.4.12)
+
 ## v0.4.11
 
 [compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v0.4.10...v0.4.11)
