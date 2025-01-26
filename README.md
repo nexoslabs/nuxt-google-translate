@@ -24,13 +24,6 @@ Easily integrate Google Translate into your Nuxt 3 application with this powerfu
 1. Add `nuxt-google-translate` dependency to your project
 
 ```bash
-# Using pnpm
-pnpm add -D nuxt-google-translate
-
-# Using yarn
-yarn add --dev nuxt-google-translate
-
-# Using npm
 npm install --save-dev nuxt-google-translate
 ```
 
@@ -118,32 +111,6 @@ const changeLanguage = (lang) => {
 </template>
 ``` 
 -->
-
-## Development
-
-```shellscript
-# Install dependencies
-npm install
-
-# Generate type stubs
-npm run dev:prepare
-
-# Develop with the playground
-npm run dev
-
-# Build the playground
-npm run dev:build
-
-# Run ESLint
-npm run lint
-
-# Run Vitest
-npm run test
-npm run test:watch
-
-# Release new version
-npm run release
-```
 
 ## Contributing
 

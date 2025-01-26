@@ -3,12 +3,7 @@
 #### 1. **Installation**
    Install the module via npm or yarn:
    ```bash
-   npm install @nuxt-google-translate
-   ```
-
-   Or, using yarn:
-   ```bash
-   yarn add @nuxt-google-translate
+   npm install nuxt-google-translate
    ```
 
 #### 2. **Configuration**
