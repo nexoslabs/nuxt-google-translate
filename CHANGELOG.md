@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.4.9
+
+[compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v0.4.8...v0.4.9)
+
+### 🩹 Fixes
+
+- Major warnings ([8f18686](https://github.com/nexoscreation/nuxt-google-translate/commit/8f18686))
+
+### ❤️ Contributors
+
+- Nexoscreator ([@nexoscreator](http://github.com/nexoscreator))
+
 ## v0.4.8
 
 
