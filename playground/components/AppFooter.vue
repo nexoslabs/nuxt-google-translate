@@ -5,7 +5,7 @@ const currentYear = computed(() => new Date().getFullYear())
 </script>
 
 <template>
-  <footer>
+  <footer class="notranslate">
     <div class="footer-content">
       <p>&copy; {{ currentYear }} Nexos Creation</p>
       <nav>
@@ -23,8 +23,8 @@ footer {
   z-index: 10;
   background: rgba(11, 15, 26, 0.8);
   backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1.5rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.5rem;
 }
 
 .footer-content {

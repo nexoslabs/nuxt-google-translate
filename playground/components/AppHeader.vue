@@ -2,18 +2,18 @@
 import { useRuntimeConfig } from '#app'
 
 const config = useRuntimeConfig()
-const version = config.public.version || '1.0.0'
+const version = config.public.version || 'alpha'
 </script>
 
 <template>
-  <header>
+  <header class="notranslate">
     <div class="header-content">
       <div class="left">
         <h1>Nuxt Google Translate</h1>
-        <span class="version">v{{ version }}</span>
+        <span class="version">{{ version }}</span>
       </div>
       <div class="right">
-        <GoogleTranslate />
+        <LanguageSelector />
         <a
           href="https://github.com/your-repo"
           target="_blank"
@@ -32,7 +32,7 @@ header {
   padding: 1.5rem;
   background: rgba(11, 15, 26, 0.8);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .header-content {
@@ -45,6 +45,7 @@ header {
 
 .left, .right {
   display: flex;
+  justify-content: end;
   align-items: center;
 }
 

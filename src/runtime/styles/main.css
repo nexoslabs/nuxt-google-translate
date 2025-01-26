@@ -1,86 +1,24 @@
 /* Default Translate Element */
-#nuxt_translate_element {
-  /* No neeed to config */
-  display: inline-flex;
-  vertical-align: middle;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-}
-
-/* Styling for the overall widget */
-#nuxt_translate_element .goog-te-gadget {
-  color: hsl(146, 0%, 10%) !important;
-  padding: 0 !important;
-  font-family: "Nunito", sans-serif; /* Clean font */
-  display: inline-block;
-  position: relative;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.8;
-  white-space: nowrap;
-  max-width: 250px; /* Optional max width */
-  width: 100%;
-}
-
-/* Styling the select dropdown */
-#nuxt_translate_element select.goog-te-combo {
-  background-color: #f7f7f7 !important; /* Light background */
-  border: 2px solid #ddd !important;
+body{
   margin: 0 !important;
-  padding: 8px 12px;
-  border-radius: 8px;
-  outline: none;
-  width: 100%; /* Full width */
-  cursor: pointer;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  top: 0 !important;
 }
 
-/* Focus and hover state for select */
-#nuxt_translate_element .goog-te-combo:hover,
-#nuxt_translate_element .goog-te-combo:focus {
-  border-color: #56ccf2;
-  box-shadow: 0 0 8px rgba(86, 204, 242, 0.5);
-}
-
-/* Custom styling for "Powered by Google" text */
-#nuxt_translate_element .goog-te-gadget {
-  font-size: 0px;
-  color: #333;
-}
-
-/* Styling for the options inside the select dropdown */
-#nuxt_translate_element .goog-te-combo option {
-  background-color: #ffffff;
-  color: #333;
-  padding: 10px;
-  font-size: 14px;
-  font-family: 'Nunito', sans-serif;
-  border: none;
-  transition: background-color 0.2s ease;
-}
-
-/* Hover effect for options */
-#nuxt_translate_element .goog-te-combo option:hover {
-  background-color: #f0f8ff;
-}
-
-/* Option when selected */
-#nuxt_translate_element .goog-te-combo option:checked {
-  background-color: #56ccf2;
-  color: white;
-}
-
-/* Global Css */
-.goog-te-banner-frame.skiptranslate,
-.goog-te-gadget-simple img,
-img.goog-te-gadget-icon,
-.goog-te-menu-value span,
-.VIpgJd-ZVi9od-ORHb-OEVmcd {
-  display: none !important;
-}
-
+/* Hide the Google Translate attribution */
+.goog-te-banner-frame,
+.goog-te-gadget-simple,
 .goog-gt-tt,
-.VIpgJd-yAWNEb-L7lbkb, .goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd{
+.goog-te-combo,
+.skiptranslate,
+.skiptranslate > *,
+.VIpgJd-yAWNEb-L7lbkb,
+.VIpgJd-ZVi9od-vH1Gmf,
+.VIpgJd-ZVi9od-xl07Ob-lTBxed,
+.VIpgJd-ZVi9od-xl07Ob-OEVmcd,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd,
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf-ti6hGc,
+iframe.VIpgJd-ZVi9od-ORHb-OEVmcd {
   display: none !important;
 }
