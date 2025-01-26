@@ -68,7 +68,12 @@ onUnmounted(() => {
     </div>
     <div class="slow-fall-wrapper">
       <div class="slow-fall-card">
-        <div v-for="item in slowFallingItems" :key="item.id" class="slow-falling-item" :style="item.style">
+        <div
+          v-for="item in slowFallingItems"
+          :key="item.id"
+          class="slow-falling-item"
+          :style="item.style"
+        >
           {{ item.text }}
         </div>
       </div>

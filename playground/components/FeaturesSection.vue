@@ -32,7 +32,10 @@ const keyFeatures = [
   <div class="key-features">
     <h2>Key Features</h2>
     <ul>
-      <li v-for="feature in keyFeatures" :key="feature.title">
+      <li
+        v-for="feature in keyFeatures"
+        :key="feature.title"
+      >
         <h3>{{ feature.title }}</h3>
         <p>{{ feature.description }}</p>
       </li>

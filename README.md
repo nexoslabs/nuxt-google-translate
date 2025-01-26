@@ -2,8 +2,8 @@
 
 [![npm](https://img.shields.io/npm/v/nuxt-google-translate)](https://www.npmjs.com/package/nuxt-google-translate)
 [![npm](https://img.shields.io/npm/dt/nuxt-google-translate)](https://www.npmjs.com/package/nuxt-google-translate)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/your-username/nuxt-google-translate/CI)]()
-[![GitHub](https://img.shields.io/github/license/your-username/nuxt-google-translate)](./LICENSE)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/nexoscreation/nuxt-google-translate/CI)]()
+[![GitHub](https://img.shields.io/github/license/nexoscreation/nuxt-google-translate)](./LICENSE)
 
 Easily integrate Google Translate into your Nuxt 3 application with this powerful and customizable module.
 
@@ -52,8 +52,8 @@ Add the `<GoogleTranslate />` component to your layout or specific pages:
 ```vue
 <template>
   <div>
+    <!--[ Init Google Translate ]-->
     <GoogleTranslate />
-    <!-- Your page content -->
   </div>
 </template>
 ```
@@ -70,6 +70,19 @@ export default defineNuxtConfig({
     supportedLanguages: ['en', 'fr', 'es', 'de', 'ja']
   }
 })
+```
+
+### Changging Language
+
+Add the `<LanguageSelector />` component to your header or specific elements:
+
+```vue
+<template>
+  <div>
+    <!--[ Add Language Dropdown Menu ]-->
+    <LanguageSelector />
+  </div>
+</template>
 ```
 
 ### Using the Composable
@@ -149,7 +162,7 @@ If you encounter any issues while using this module, please check the following:
 4. Check the browser console for any error messages
 
 
-If you're still having problems, please [open an issue](https://github.com/your-username/nuxt-google-translate/issues/new) with a detailed description of the problem, your Nuxt version, and any relevant code snippets.
+If you're still having problems, please [open an issue](https://github.com/nexoscreation/nuxt-google-translate/issues/new) with a detailed description of the problem, your Nuxt version, and any relevant code snippets.
 
 ## License
 
@@ -157,4 +170,4 @@ If you're still having problems, please [open an issue](https://github.com/your-
 
 ## Questions or Feedback?
 
-If you have any questions, suggestions, or feedback, please don't hesitate to [open an issue](https://github.com/your-username/nuxt-google-translate/issues/new) or [submit a pull request](https://github.com/your-username/nuxt-google-translate/pulls). We appreciate your input and want to make this module as useful as possible for the Nuxt community. 🚀
+If you have any questions, suggestions, or feedback, please don't hesitate to [open an issue](https://github.com/nexoscreation/nuxt-google-translate/issues/new) or [submit a pull request](https://github.com/nexoscreation/nuxt-google-translate/pulls). We appreciate your input and want to make this module as useful as possible for the Nuxt community. 🚀
