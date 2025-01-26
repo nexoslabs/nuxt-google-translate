@@ -23,7 +23,7 @@ export default defineNuxtModule<ModuleOptions>({
   // Default configuration options
   defaults: {
     defaultLanguage: 'en',
-    supportedLanguages: ['ar', 'cs', 'da', 'en', 'fi', 'fr', 'gu', 'hi', 'id', 'it', 'ja', 'ko', 'sk', 'sv', 'th', 'tr', 'uk', 'vi'],
+    supportedLanguages: ['ar', 'cs', 'da', 'en', 'fi', 'fr', 'gu', 'hi', 'id', 'it', 'ja', 'ko', 'ru', 'sv', 'ta', 'tr', 'uk', 'vi'],
   },
   setup(options, nuxt: Nuxt) {
     const { resolve } = createResolver(import.meta.url)
@@ -47,7 +47,6 @@ export default defineNuxtModule<ModuleOptions>({
       name: 'LanguageSelector',
       filePath: resolve('./runtime/components/LanguageSelector.vue'),
     })
-
 
     // Register the useGoogleTranslate composable
     addImports({
