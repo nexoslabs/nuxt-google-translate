@@ -8,6 +8,8 @@ on:
     branches:
       - main
 
+permissions: {contents: read}
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -22,21 +24,11 @@ jobs:
       - name: Install dependencies
         run: npx nypm@latest i
 
+      - name: Project prepare
+        run: npm run dev:prepare
+
+      - name: Project build
+        run: npm run prepack
+
       - name: Lint
         run: npm run lint
-
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-      - run: corepack enable
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: npx nypm@latest i
-
-      - name: Playground prepare
-        run: npm run prepack

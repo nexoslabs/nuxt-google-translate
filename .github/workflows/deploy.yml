@@ -24,38 +24,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Checkout the repository
     - name: Checkout Code
     - uses: actions/checkout@v4
-      run: corepack enable
+    - run: corepack enable
 
-    # Step 2: Set up Node.js
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+    - uses: actions/setup-node@v4
       with:
-        node-version: 20  # Specify the Node.js version
+        node-version: 20
 
-    # Step 3: Install dependencies for the module
     - name: Install Module Dependencies
       run: npm install
 
-    # Step 4: Build the module
     - name: Build Module
-      run: npm run prepack  # Build the module (as defined in your scripts)
+      run: npm run dev:prepare
 
-    # Step 5: Install dependencies for the playground
-    - name: Install Playground Dependencies
-    - working-directory: playground
-      run: npm install
-
-    # Step 6: Build the playground
     - name: Build Playground
-    - working-directory: playground
-      run: npm run generate  # Nuxt generates static files
+      run: npm run dev:build
 
-    # Step 7: Deploy to GitHub Pages
+    - name: Generate Playground
+      run: npm run dev:generate
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: playground/.output/public  # Nuxt's static output directory
+        publish_dir: playground/.output/public
