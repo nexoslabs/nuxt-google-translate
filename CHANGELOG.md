@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.5.1
+
+[compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v0.4.12...v0.5.1)
+
+### 🚀 Enhancements
+
+- Added deploy pages to github ([bd50c53](https://github.com/nexoscreation/nuxt-google-translate/commit/bd50c53))
+
+### 🩹 Fixes
+
+- Workflow nuxi pkg missing ([ef7c414](https://github.com/nexoscreation/nuxt-google-translate/commit/ef7c414))
+
+### 🏡 Chore
+
+- **release:** V0.4.12 ([6e69ac5](https://github.com/nexoscreation/nuxt-google-translate/commit/6e69ac5))
+
+### ❤️ Contributors
+
+- Nexoscreator ([@nexoscreator](http://github.com/nexoscreator))
+
 ## v0.4.12
 
 [compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v0.4.11...v0.4.12)
