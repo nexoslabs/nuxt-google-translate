@@ -1,3 +1,4 @@
+- fix(build): resolve vite rollup error for 'lucide-vue-next' (#3)
 - v0.6.2 (#2)
 - v0.5.0 (#1)
 # Changelog
