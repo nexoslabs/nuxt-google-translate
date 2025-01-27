@@ -2,6 +2,13 @@ export default defineNuxtConfig({
   modules: ['../src/module'],
   devtools: { enabled: true },
   compatibilityDate: '2025-01-25',
+  vite: {
+    build: {
+      rollupOptions: {
+        external: ['lucide-vue-next'],
+      },
+    },
+  },
   googleTranslate: {
     defaultLanguage: 'en',
     supportedLanguages: [
