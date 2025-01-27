@@ -22,7 +22,6 @@
   ],
   "scripts": {
     "prepack": "nuxt-module-build build",
-    "prepare": "nuxt-module-build prepare",
     "dev": "nuxi dev playground",
     "dev:generate": "nuxi generate playground",
     "dev:build": "nuxi build playground",
