@@ -1,76 +1,119 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { CopyIcon, CheckIcon, RefreshCwIcon } from 'lucide-vue-next'
+import { useGoogleTranslate } from '#imports'
 
-// Sample translated text (this would be dynamically translated in a real implementation)
-const sampleTranslatedText = ref({
+const { activeLanguage } = useGoogleTranslate()
+
+const isCopied = ref(false)
+
+const sampleTranslatedText = computed(() => ({
   npm: 'npm install nuxt-google-translate',
-  npx: 'npx nuxi coming soon!',
-  yarn: 'yarn comming soon!',
-  pnpm: 'pnpm coming soon!',
-  bun: 'bun coming soon!',
-})
+  yarn: 'yarn add nuxt-google-translate',
+  pnpm: 'pnpm add nuxt-google-translate',
+  bun: 'bun add nuxt-google-translate',
+  nuxi: 'nuxi coming soon!',
+  add: '...',
+}))
 
-// Function to get a random supported language code
-const getRandomLanguage = () => {
+const currentSampleLanguage = ref<keyof typeof sampleTranslatedText.value>(activeLanguage.value as keyof typeof sampleTranslatedText.value)
+
+const changeSampleLanguage = () => {
   const languages = Object.keys(sampleTranslatedText.value)
-  return languages[Math.floor(Math.random() * languages.length)]
+  const currentIndex = languages.indexOf(currentSampleLanguage.value)
+  const nextIndex = (currentIndex + 1) % languages.length
+  currentSampleLanguage.value = languages[nextIndex] as keyof typeof sampleTranslatedText.value
 }
 
-// Reactive reference for the current sample language
-const currentSampleLanguage = ref(getRandomLanguage())
-
-// Function to change the sample language
-const changeSampleLanguage = () => {
-  currentSampleLanguage.value = getRandomLanguage()
+const copyToClipboard = async () => {
+  try {
+    await navigator.clipboard.writeText(currentSampleLanguage.value)
+    isCopied.value = true
+    setTimeout(() => {
+      isCopied.value = false
+    }, 2000)
+  }
+  catch (err) {
+    console.error('Failed to copy text: ', err)
+  }
 }
 </script>
 
 <template>
-  <div class="sample-translation">
-    <h3>Try Translation:</h3>
-    <code
-      class="sample-text notranslate"
+  <div class="installation-demo">
+    <div
+      class="code-block"
+      tabindex="0"
+      role="button"
+      :aria-label="'Sample text in ' + currentSampleLanguage + '. Click to change language.'"
+    >
+      <code @click="changeSampleLanguage">{{ sampleTranslatedText[currentSampleLanguage] }}</code>
+      <button
+        class="copy-button"
+        :aria-label="isCopied ? 'Copied' : 'Copy to clipboard'"
+        @click="copyToClipboard"
+      >
+        <CopyIcon v-if="!isCopied" />
+        <CheckIcon v-else />
+      </button>
+    </div>
+    <button
+      class="change-manager-button"
       @click="changeSampleLanguage"
     >
-      {{ sampleTranslatedText[currentSampleLanguage] }}
-    </code>
-    <p class="sample-instruction">
-      Click to see another language
-    </p>
+      <RefreshCwIcon class="icon" />
+      Click to see another package manager
+    </button>
   </div>
 </template>
 
-<style lang="css" scoped>
-.sample-translation {
-  margin: 2rem 0;
+<style scoped>
+.installation-demo {
+  margin-bottom: 2rem;
+}
+
+.code-block {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.sample-translation h3 {
-  font-size: 1.5rem;
-  color: #00DC82;
-  margin-bottom: 0.5rem;
-}
-
-.sample-text {
-  font-size: 1.5rem;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+code {
+  flex-grow: 1;
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.copy-button,
+.change-manager-button {
+  background: none;
+  border: none;
+  color: #00DC82;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
 }
 
-.sample-text:hover {
-  background: rgba(255, 255, 255, 0.2);
+.copy-button:hover,
+.change-manager-button:hover {
+  color: #fff;
 }
 
-.sample-instruction {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.6);
-  margin-top: 0.25rem;
+.icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .sample-text {
+    font-size: 1.25rem;
+  }
 }
 </style>

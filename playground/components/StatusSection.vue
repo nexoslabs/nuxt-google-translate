@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { GlobeIcon, CheckCircleIcon, XCircleIcon } from 'lucide-vue-next'
 import { useGoogleTranslate } from '#imports'
 
 const { activeLanguage, supportedLanguages, isLoaded } = useGoogleTranslate()
 
 // Compute the number of supported languages with optional chaining
-const languageCount = computed(() => supportedLanguages.value?.length ?? 0)
+const languageCount = computed(() => supportedLanguages?.length ?? 0)
 
 // Add error state
 const hasError = ref(false)
@@ -21,18 +22,10 @@ if (import.meta.client) {
 </script>
 
 <template>
-  <div
+  <section
     class="status-section"
     :class="{ 'status-section--loaded': isLoaded, 'status-section--error': hasError }"
   >
-    <div class="demo-card">
-      <h2>🎬 Try It, It's Better Than Sliced Bread!</h2>
-      <p>
-        Go ahead, pick a language from our fancy dropdown. Watch as the text transforms like it's in a linguistic
-        circus. It's almost as fun as popping bubble wrap!
-      </p>
-    </div>
-
     <div
       v-if="isLoaded"
       class="status-card"
@@ -75,17 +68,12 @@ if (import.meta.client) {
       />
       <p>Initializing translator...</p>
     </div>
-
-    <div class="demo-card">
-      <h2>🎉 Final Thoughts</h2>
-      <p>Remember, with great power comes great responsibility. Use this module wisely, and maybe don't translate your love letters through it. Some things are better left in their original, heartfelt, possibly grammatically incorrect form.</p>
-    </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>
 .status-section {
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   transition: all 0.3s ease;
 }
 
@@ -94,27 +82,35 @@ if (import.meta.client) {
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
 }
 
 .demo-card h2 {
   color: #00DC82;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.emoji {
+  margin-right: 0.5rem;
+  font-size: 2rem;
 }
 
 .demo-card p {
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
 }
 
 .status-card {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 2rem;
   margin: 2rem 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -122,7 +118,7 @@ if (import.meta.client) {
 .status-item {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1.5rem;
   transition: all 0.3s ease;
 }
 
@@ -132,15 +128,15 @@ if (import.meta.client) {
 }
 
 .status-item h3 {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
 }
 
 .status-item p {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: #fff;
   margin: 0;
   font-weight: 600;
@@ -152,17 +148,18 @@ if (import.meta.client) {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  padding: 2rem;
+  gap: 1.5rem;
+  padding: 3rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   text-align: center;
+  margin: 2rem 0;
 }
 
 .spinner {
-  width: 40px;
-  height: 40px;
-  border: 3px solid rgba(0, 220, 130, 0.1);
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(0, 220, 130, 0.1);
   border-top-color: #00DC82;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -174,25 +171,36 @@ if (import.meta.client) {
 }
 
 .icon {
-  width: 18px;
-  height: 18px;
-  margin-right: 0.5rem;
+  width: 24px;
+  height: 24px;
+  margin-right: 0.75rem;
 }
 
 .icon--large {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .status-card {
     grid-template-columns: 1fr;
+  }
+
+  .demo-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .demo-card p {
+    font-size: 1rem;
+  }
+
+  .status-item p {
+    font-size: 1.25rem;
   }
 }
 </style>
