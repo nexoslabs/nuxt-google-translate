@@ -1,13 +1,16 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { CopyIcon, CheckIcon } from 'lucide-vue-next'
+
 const installationSteps = [
-  { step: 1, description: `npm install nuxt-google-translate (or yarn, if that's your jam)` },
-  { step: 2, description: `Sprinkle some config magic in your nuxt.config.js` },
-  { step: 3, description: `Voilà! Your app is now a language virtuoso!` },
-  { step: 4, description: ` Wave your wand (or just restart your dev server)` },
+  { step: 1, description: 'Install the package', code: 'install' },
+  { step: 2, description: 'Configure your Nuxt app', code: 'config' },
+  { step: 3, description: 'Use the components', code: 'usage' },
+  { step: 4, description: 'Restart your dev server', code: null },
 ]
 
 const codeSnippets = {
-  install: 'npm install nuxt-google-translate', // \n# or\nyarn add nuxt-google-translate
+  install: `npm install nuxt-google-translate\n# or\nyarn add nuxt-google-translate`,
   config: `// nuxt.config.js
 export default {
   modules: [
@@ -20,33 +23,81 @@ export default {
 }`,
   usage: `<template>
   <div>
-    <!--[ Init Google Translate ]-->
+    <!-- Initialize Google Translate -->
     <GoogleTranslate />
-    <!--[ Add Language Dropdown Menu ]-->
+    <!-- Add Language Dropdown Menu -->
     <LanguageSelector />
   </div>
-<template>
+</template>
 
-<script type="ts" setup>
-// Test
-</script&gt;`,
+<script setup lang="ts">
+import { useGoogleTranslate } from '#imports'
+
+const { activeLanguage, setLanguage } = useGoogleTranslate()
+</script&gt;
+`,
+}
+
+const copiedStates = ref({
+  install: false,
+  config: false,
+  usage: false,
+})
+
+const copyToClipboard = async (code: keyof typeof codeSnippets) => {
+  try {
+    await navigator.clipboard.writeText(codeSnippets[code])
+    copiedStates.value[code] = true
+    setTimeout(() => {
+      copiedStates.value[code] = false
+    }, 2000)
+  }
+  catch (err) {
+    console.error('Failed to copy text: ', err)
+  }
 }
 </script>
 
 <template>
-  <section class="demo-section">
+  <section
+    class="demo-section"
+    aria-labelledby="installation-guide"
+  >
     <div class="installation-guide">
-      <h2>🛠️ Installation (Don't Worry, It's Not Rocket Science)</h2>
+      <h2 id="installation-guide">
+        🛠️ Installation (Don't Worry, It's Not Rocket Science)
+      </h2>
       <ol>
         <li
           v-for="step in installationSteps"
           :key="step.step"
+          class="installation-step"
         >
-          <strong>Step {{ step.step }}:</strong> {{ step.description }}
-          <pre v-if="step.step === 1"><code class="notranslate">{{ codeSnippets.install }}</code></pre>
-          <pre v-if="step.step === 2"><code class="notranslate">{{ codeSnippets.config }}</code></pre>
-          <pre v-if="step.step === 3"><code class="notranslate">{{ codeSnippets.usage }}</code></pre>
-          <pre v-if="step.step === 4"><code class="notranslate">...</code></pre>
+          <h3>Step {{ step.step }}: {{ step.description }}</h3>
+          <div
+            v-if="step.code"
+            class="code-block"
+          >
+            <pre><code>{{ codeSnippets[step.code as keyof typeof codeSnippets] }}</code></pre>
+            <button
+              class="copy-button"
+              :aria-label="copiedStates[step.code as keyof typeof copiedStates] ? 'Copied' : 'Copy to clipboard'"
+              @click="copyToClipboard(step.code as 'install' | 'config' | 'usage')"
+            >
+              <CopyIcon v-if="!copiedStates[step.code as keyof typeof copiedStates]" />
+              <CheckIcon v-else />
+            </button>
+          </div>
+          <div
+            v-else
+            class="emoji-block"
+          >
+            <span
+              class="emoji"
+              aria-hidden="true"
+            >🎉</span>
+            <span>You're all set!</span>
+          </div>
         </li>
       </ol>
     </div>
@@ -63,12 +114,13 @@ export default {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .installation-guide h2 {
   color: #00DC82;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
 }
 
 .installation-guide ol {
@@ -76,20 +128,27 @@ export default {
   padding: 0;
 }
 
-.installation-guide li {
-  margin-bottom: 1.5rem;
+.installation-step {
+  margin-bottom: 2rem;
 }
 
-.installation-guide strong {
+.installation-step h3 {
   color: #00DC82;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
 }
 
-pre {
+.code-block {
+  position: relative;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   padding: 1rem;
-  overflow-x: auto;
   margin-top: 0.5rem;
+}
+
+pre {
+  overflow-x: auto;
+  margin: 0;
 }
 
 code {
@@ -98,7 +157,57 @@ code {
   color: #e0e0e0;
 }
 
-.mt-4 {
-  margin-top: 1rem;
+.copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  padding: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.copy-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.copy-button svg {
+  width: 1rem;
+  height: 1rem;
+  color: #00DC82;
+}
+
+.emoji-block {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 220, 130, 0.1);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+}
+
+.emoji {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .installation-guide {
+    padding: 1.5rem;
+  }
+
+  .installation-guide h2 {
+    font-size: 1.5rem;
+  }
+
+  .installation-step h3 {
+    font-size: 1.1rem;
+  }
+
+  code {
+    font-size: 0.8rem;
+  }
 }
 </style>

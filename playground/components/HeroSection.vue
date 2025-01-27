@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { GlobeIcon, ArrowRightIcon } from 'lucide-vue-next'
+import DemoSection from './DemoSection.vue'
+
+const { activeLanguage } = useGoogleTranslate()
 
 interface SlowFallingItem {
   id: number
@@ -17,7 +21,7 @@ interface SlowFallingItem {
 const slowFallingItems = ref<SlowFallingItem[]>([])
 
 const createSlowFallingItem = (id: number): SlowFallingItem => {
-  const words = ['Translate', 'Nuxt', 'Global', '世界', 'Mundo', 'язык', 'भाषा']
+  const words = ['Translate', 'Nuxt', 'Global', '世界', 'Vue', 'Hello', 'Word', 'язык', 'भाषा']
   return {
     id,
     text: words[Math.floor(Math.random() * words.length)],
@@ -55,16 +59,34 @@ onUnmounted(() => {
 <template>
   <section class="hero">
     <div class="hero-content">
-      <h2 class="moran-text">
+      <h1 class="moran-text">
         <span class="moran-letter">
           Translate Without Limits
         </span>
-      </h2>
+      </h1>
       <p class="subtitle">
         Empower your Nuxt.js applications with seamless, powerful, and customizable translation capabilities. Break
         language barriers and reach a global audience with ease.
       </p>
-      <DemoSection />
+      <div class="cta-container">
+        <a
+          href="#demo"
+          class="cta-button"
+        >
+          Try it now
+          <ArrowRightIcon class="icon" />
+        </a>
+        <div class="language-indicator">
+          <GlobeIcon class="icon" />
+          <span>Current: {{ activeLanguage }}</span>
+        </div>
+      </div>
+      <div
+        id="demo"
+        class="demo-wrapper"
+      >
+        <DemoSection />
+      </div>
     </div>
     <div class="slow-fall-wrapper">
       <div class="slow-fall-card">
@@ -84,22 +106,24 @@ onUnmounted(() => {
 <style scoped>
 .hero {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 4rem 0;
+  padding: 6rem 0 4rem;
   position: relative;
 }
 
 .hero-content {
   flex: 1;
   max-width: 600px;
+  margin-right: 2rem;
 }
 
 .moran-text {
   font-size: 3rem;
-  font-weight: 700;
-  color: #36E4DA;
-  margin-bottom: 1.2rem;
+  font-weight: 800;
+  color: #00DC82;
+  margin-bottom: 1.5rem;
 }
 
 .moran-letter {
@@ -111,6 +135,50 @@ onUnmounted(() => {
   font-size: 1.25rem;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.cta-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #00DC82;
+  color: #0B0F1A;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #36E4DA;
+  transform: translateY(-2px);
+}
+
+.cta-button .icon {
+  margin-left: 0.5rem;
+  width: 18px;
+  height: 18px;
+}
+
+.language-indicator {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.language-indicator .icon {
+  margin-right: 0.5rem;
+  width: 18px;
+  height: 18px;
 }
 
 .slow-fall-wrapper {
@@ -136,16 +204,21 @@ onUnmounted(() => {
   animation: slowFallAndFade linear infinite;
 }
 
+.demo-wrapper {
+  width: 100%;
+  margin-top: 4rem;
+}
+
 @keyframes moranEffect {
 
-0%,
-100% {
-  transform: translateY(0);
-}
+  0%,
+  100% {
+    transform: translateY(0);
+  }
 
-50% {
-  transform: translateY(-10px);
-}
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes slowFallAndFade {
@@ -165,21 +238,54 @@ onUnmounted(() => {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero {
     flex-direction: column;
+    align-items: center;
+    padding: 4rem 0 2rem;
   }
 
   .hero-content {
     max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 2rem;
   }
 
   .moran-text {
-    font-size: 2rem;
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .subtitle {
+    text-align: center;
+  }
+
+  .cta-container {
+    justify-content: center;
   }
 
   .slow-fall-wrapper {
-    display: none;
+    max-width: 100%;
+    height: 200px;
+  }
+}
+
+@media (max-width: 640px) {
+  .moran-text {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .cta-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-button {
+    justify-content: center;
   }
 }
 </style>
