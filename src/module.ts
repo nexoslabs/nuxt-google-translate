@@ -23,7 +23,7 @@ export default defineNuxtModule<ModuleOptions>({
   // Default configuration options
   defaults: {
     defaultLanguage: 'en',
-    supportedLanguages: ['ar', 'cs', 'da', 'en', 'fi', 'fr', 'gu', 'hi', 'id', 'it', 'ja', 'ko', 'ru', 'sv', 'ta', 'tr', 'uk', 'vi'],
+    supportedLanguages: ['en', 'fr', 'hi', 'id', 'ru', 'ko'],
   },
   setup(options, nuxt: Nuxt) {
     const { resolve } = createResolver(import.meta.url)
@@ -65,6 +65,10 @@ export default defineNuxtModule<ModuleOptions>({
     } as { defaultLanguage: string, supportedLanguages: string[] }
 
     // Log initialization information
-    console.info('[nuxt-google-translate] Initializing with options:', options)
+    console.info(
+      `\x1B[32m[nuxt-google-translate] Initialization Details:\x1B[0m\n`
+      + `\x1B[36m- Default Language: \x1B[33m${options.defaultLanguage}\x1B[0m\n`
+      + `\x1B[36m- Supported Languages: \x1B[33m${options.supportedLanguages?.length}\x1B[0m`,
+    )
   },
 })
