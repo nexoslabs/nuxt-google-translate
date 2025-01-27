@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.6.2
+
+[compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v0.5.1...v0.6.2)
+
+### 🚀 Enhancements
+
+- Add all supported languages ([c48393f](https://github.com/nexoscreation/nuxt-google-translate/commit/c48393f))
+
+### 📖 Documentation
+
+- Improved ([a3a2cd0](https://github.com/nexoscreation/nuxt-google-translate/commit/a3a2cd0))
+
+### ❤️ Contributors
+
+- Nexoscreator ([@nexoscreator](http://github.com/nexoscreator))
+
 ## v0.5.1
 
 [compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v0.4.12...v0.5.1)
