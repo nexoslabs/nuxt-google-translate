@@ -25,7 +25,7 @@ declare global {
     google: {
       translate: {
         TranslateElement: {
-          new (config: GoogleTranslateConfig, elementId: string): void
+          new(config: GoogleTranslateConfig, elementId: string): void
           InlineLayout: {
             SIMPLE: string
             HORIZONTAL: string
@@ -84,27 +84,37 @@ export default defineNuxtPlugin((nuxtApp) => {
    */
   const loadGoogleTranslate = () => {
     if (import.meta.client && !isLoaded.value) {
+      if (document.querySelector('#google-translate-script')) return
+
       // Create and append the Google Translate script
       const script = document.createElement('script')
+      script.id = 'google-translate-script'
       script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
-      script.async = true
-      document.head.appendChild(script)
+      script.async = true // Ensures that script is loaded asynchronously
+      script.defer = true // Prevents blocking of other elements on page load
 
-      // Initialize the Google Translate widget when the script loads
-      window.googleTranslateElementInit = () => {
-        new window.google.translate.TranslateElement(
-          {
-            pageLanguage: defaultLanguage,
-            includedLanguages: supportedLanguages.join(','),
-            layout: window.google.translate.TranslateElement.InlineLayout.VERTICAL,
-            autoDisplay: false,
-          },
-          'nuxt_translate_element',
-        )
-        // Mark as loaded and update to initial language
-        isLoaded.value = true
-        updateGoogleTranslate(activeLanguage.value)
+      script.onload = () => {
+        // Initialize the Google Translate widget when the script loads
+        window.googleTranslateElementInit = () => {
+          new window.google.translate.TranslateElement(
+            {
+              pageLanguage: defaultLanguage,
+              includedLanguages: supportedLanguages.join(','),
+              layout: window.google.translate.TranslateElement.InlineLayout.VERTICAL,
+              autoDisplay: false,
+            },
+            'nuxt_translate_element',
+          )
+          // Mark as loaded and update to initial language
+          isLoaded.value = true
+          updateGoogleTranslate(activeLanguage.value)
+        }
       }
+
+      // Append the script **AFTER** the page has loaded
+      window.addEventListener('load', () => {
+        document.body.appendChild(script)
+      })
     }
   }
 
