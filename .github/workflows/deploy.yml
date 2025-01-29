@@ -1,4 +1,4 @@
-name: Deploy Playground to GitHub Pages
+name: Deploy Playground
 
 on:
   push:
@@ -32,14 +32,20 @@ jobs:
        with:
          node-version: 20
 
-     - name: Install Module Dependencies
+     - name: Install Root Dependencies
        run: npm install
+
+     - name: Install Lucide Icons
+       run: npm install lucide-vue-next
 
      - name: Build Module
        run: npm run dev:prepare
 
      - name: Build Playground
        run: npm run dev:build
+
+     - name: Install Playground Dependencies
+       run: npm playground && npm install
 
      - name: Generate Playground
        run: npm run dev:generate

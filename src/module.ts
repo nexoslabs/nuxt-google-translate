@@ -35,9 +35,6 @@ export default defineNuxtModule<ModuleOptions>({
       )
     }
 
-    // Add module styles
-    nuxt.options.css.push(resolve('./runtime/styles/main.css'))
-
     // Register the GoogleTranslate component
     addComponent({
       name: 'GoogleTranslate',
