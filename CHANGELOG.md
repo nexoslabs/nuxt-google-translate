@@ -1,3 +1,4 @@
+- Fix: Load Google Translate Script Asynchronously to Avoid `document.write()` Violation   (#7)
 - fixed some major bugs (#6)
 - fix(build): resolve vite rollup error for 'lucide-vue-next' (#3)
 - v0.6.2 (#2)
