@@ -3,7 +3,7 @@ name: Deploy Playground
 on:
   push:
     branches:
-      - main  # Trigger deployment on pushes to the main branch
+      - main
 
   workflow_dispatch:  # Allow manual workflow dispatch
 
@@ -30,7 +30,8 @@ jobs:
      - name: Setup Node.js
        uses: actions/setup-node@v4
        with:
-         node-version: 20
+         node-version: "20"
+         cache: npm
 
      - name: Install Root Dependencies
        run: npm install
@@ -47,11 +48,18 @@ jobs:
      - name: Generate Playground
        run: npm run dev:generate
 
+     - name: Setup Pages
+       uses: actions/configure-pages@v5
+       with:
+        static_site_generator: nuxt
+
      - name: List Generated Files
        run: ls -R playground/.output/public
 
-     - name: Deploy to GitHub Pages
-       uses: peaceiris/actions-gh-pages@v4
+     - name: Upload artifact
+       uses: actions/upload-pages-artifact@v3
        with:
-         github_token: ${{ secrets.GITHUB_TOKEN }}
-         publish_dir: playground/.output/public
+         path: playground/.output/public
+
+     - name: Deploy to GitHub Pages
+       uses: actions/deploy-pages@v4
