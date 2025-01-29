@@ -71,10 +71,10 @@ const handleNavigation = (href: string) => {
 <style scoped>
 footer {
   position: relative;
-  z-index: 10;
-  background: rgba(11, 15, 26, 0.8);
-  backdrop-filter: blur(10px);
-  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  z-index: 50;
+  background: hsla(224, 41%, 7%, 0.8);
+  backdrop-filter: blur(8px);
+  border-top: 2px solid hsla(224, 0%, 100%, 0.1);
   padding: 2rem 1.5rem;
 }
 
@@ -94,7 +94,7 @@ footer {
 
 .copyright {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: hsla(224, 0%, 100%, 0.9);
   margin: 0;
   display: flex;
   align-items: center;
@@ -104,7 +104,7 @@ footer {
   width: 16px;
   height: 16px;
   margin-left: 0.5rem;
-  color: #ff4757;
+  color: hsl(355, 100%, 64%);
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -131,20 +131,21 @@ footer {
 
 .tagline {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: hsla(224, 0%, 100%, 0.6);
   margin: 0.5rem 0 0 0;
 }
 
 .footer-nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
 .nav-link {
   display: flex;
   align-items: center;
-  color: rgba(255, 255, 255, 0.6);
+  gap: 4px;
+  color: hsla(224, 0%, 100%, 0.6);
   text-decoration: none;
   transition: all 0.2s ease;
   background: none;
@@ -156,14 +157,14 @@ footer {
 
 .nav-link:hover,
 .nav-link:focus {
-  color: #00DC82;
-  background: rgba(255, 255, 255, 0.1);
+  color: hsl(155, 100%, 43%);
+  background: hsla(0, 0%, 100%, 0.1);
   outline: none;
 }
 
 .nav-icon {
-  width: 18px;
-  height: 18px;
+  width: 16x;
+  height: 16px;
   margin-right: 0.5rem;
 }
 

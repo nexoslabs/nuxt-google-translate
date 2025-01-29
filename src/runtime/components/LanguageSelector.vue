@@ -198,7 +198,7 @@ const currentLanguageName = computed(() => getLanguageName(selectedLanguage.valu
     <!-- Loaded state -->
     <div
       v-else
-      class="language-dropdown"
+      class="language-dropdown notranslate"
       @click="toggleDropdown"
     >
       <div class="selected-language">
@@ -273,10 +273,10 @@ const currentLanguageName = computed(() => getLanguageName(selectedLanguage.valu
 .language-loading {
   display: flex;
   align-items: center;
-  background-color: hsl(155, 0%, 12%);
-  border: 1px solid hsl(155, 0%, 70%);
+  background-color: hsla(0, 0%, 12%, 0.95);
+  border: 1px solid hsla(0, 0%, 50%, 0.7);
   padding: 0.5rem 1rem;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 .loading-icon {
@@ -286,10 +286,10 @@ const currentLanguageName = computed(() => getLanguageName(selectedLanguage.valu
 
 .language-dropdown {
   cursor: pointer;
-  background-color: hsl(155, 0%, 12%);
-  border: 1px solid hsl(155, 0%, 70%);
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
+  background-color: hsla(0, 0%, 12%, 0.95);
+  border: 1px solid hsla(0, 0%, 50%, 0.7);
+  border-radius: 2px;
+  padding: 0.5rem 0.75rem;
   transition: all 0.3s ease;
 }
 
@@ -303,11 +303,11 @@ const currentLanguageName = computed(() => getLanguageName(selectedLanguage.valu
 }
 
 .globe-icon {
-  margin-right: 10px;
+  margin-right: 0.75rem;
 }
 
 .chevron-icon {
-  margin-left: 8px;
+  margin-left: 0.75rem;
   transition: transform 0.3s ease;
 }
 
@@ -320,11 +320,11 @@ const currentLanguageName = computed(() => getLanguageName(selectedLanguage.valu
   top: 42px;
   left: 0;
   width: 100%;
-  background-color: hsl(155, 0%, 12%);
-  border: 1px solid hsl(155, 0%, 70%);
-  border-radius: 6px;
+  background-color: hsla(155, 0%, 12%, 0.95);
+  border: 1px solid hsla(155, 0%, 50%, 0.7);
+  border-radius: 2px;
   box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.1);
-  z-index: 10;
+  z-index: 100;
   max-height: 275px;
   overflow-y: auto;
   list-style-type: none;
@@ -333,34 +333,37 @@ const currentLanguageName = computed(() => getLanguageName(selectedLanguage.valu
 }
 
 .language-options li {
-  padding: 10px;
-  border-bottom: 1px solid hsl(155, 0%, 70%);
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid hsla(155, 0%, 50%, 0.7);
   transition: background-color 0.2s ease;
 }
 
 .language-options li:hover {
-  background-color: hsl(155, 0%, 25%);
+  background-color: hsl(155, 0%, 24%);
 }
 
 .language-options li.active {
-  background-color: hsl(155, 0%, 50%);
-  color: hsl(155, 100%, 43%);
-  font-weight: 600;
+  background-color: hsl(155, 0%, 24%);
+  color: hsl(155, 0%, 92%);
+  font-weight: 500;
 }
 
 .language-options::-webkit-scrollbar {
+
   width: 6px;
   -ms-overflow-style: none;
 }
 
 .language-options::-webkit-scrollbar-track {
-  background: hsl(155, 0%, 8%);
-  border-radius: 12px;
+  background: hsl(155, 0%, 12%);
+  border-left: 1px solid hsla(155, 0%, 50%, 0.7);
+  border-radius: 0px 2px 2px 0px;
 }
 
 .language-options::-webkit-scrollbar-thumb {
-  background: hsl(155, 0%, 24%);
-  border-radius: 6px;
+  background: hsl(155, 0%, 48%);
+  border-left: 1px solid hsla(155, 0%, 50%, 0.7);
+  border-radius: 0px;
 }
 
 .language-options::-webkit-scrollbar-thumb:hover {
