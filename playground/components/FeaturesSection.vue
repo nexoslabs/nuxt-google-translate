@@ -121,7 +121,7 @@ const keyFeatures = [
 .key-features h3 {
   font-size: 1.25rem;
   color: #00DC82;
-  margin-bottom: 0.5rem;
+  margin: 0.75rem 0;
 }
 
 .key-features p {

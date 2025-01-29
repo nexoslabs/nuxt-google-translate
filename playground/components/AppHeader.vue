@@ -108,22 +108,22 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
-  padding: 0.25rem 1rem;
-  background: rgba(11, 15, 26, 0.8);
-  backdrop-filter: blur(10px);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  z-index: 50;
+  padding: 0rem 1rem;
+  background: hsla(224, 41%, 7%, 0.8);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid hsla(224, 0%, 100%, 0.1);
   transition: all 0.3s ease;
 }
 
 header.scrolled {
-  padding: 0.1rem 0.5rem;
-  background: rgba(11, 15, 26, 0.95);
+  background: hsla(224, 41%, 7%, 0.95);
 }
 
 .header-content {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -152,24 +152,25 @@ header:hover .logo {
 .version {
   align-self: center;
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: hsla(224, 0%, 100%, 0.6);
   margin-left: 0.5rem;
   padding: 0.2rem 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: hsla(224, 0%, 100%, 0.1);
   border-radius: 12px;
   transition: all 0.3s ease;
 }
 
 .version:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: hsla(224, 0%, 100%, 0.2);
 }
 
 .github-link {
-  color: #fff;
+  color: hsl(224, 0%, 100%);
   text-decoration: none;
   padding: 0.5rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
+  background: hsla(224, 0%, 12%, 0.95);
+  border: 1px solid hsla(224, 0%, 50%, 0.7);
+  border-radius: 2px;
   transition: all 0.2s ease;
   margin-left: 1rem;
   display: flex;
@@ -177,8 +178,8 @@ header:hover .logo {
 }
 
 .github-link:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: hsla(224, 0%, 100%, 0.1);
+  border-color: hsla(224, 0%, 100%, 0.3);
 }
 
 .github-icon {
@@ -234,12 +235,12 @@ header:hover .logo {
     flex-direction: column;
     align-items: center;
     padding: 1rem;
-    background: rgba(11, 15, 26, 0.95);
+    background: hsla(224, 41%, 7%, 0.95);
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    transform: translateY(-100%);
+    transform: translateY(-150%);
     opacity: 0;
     transition: all 0.3s ease;
   }
@@ -254,7 +255,7 @@ header:hover .logo {
   }
 
   .mobile-menu-open {
-    background: rgba(11, 15, 26, 0.95);
+    background: hsla(224, 41%, 7%, 0.95);
   }
 }
 </style>

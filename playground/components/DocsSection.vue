@@ -111,10 +111,10 @@ const copyToClipboard = async (code: keyof typeof codeSnippets) => {
 }
 
 .installation-guide {
-  background: rgba(255, 255, 255, 0.05);
+  background: hsla(0, 0%, 100%, 0.05);
   border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.1);
 }
 
 .installation-guide h2 {
@@ -139,14 +139,20 @@ const copyToClipboard = async (code: keyof typeof codeSnippets) => {
 }
 
 .code-block {
+  font-family: 'Courier New', Courier, monospace;
   position: relative;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  padding: 1rem;
+  background: hsla(0, 0%, 0%, 0.2);
+  border: 1px solid hsla(0, 0%, 0%, 0.25);
+  border-radius: 0.4rem;
+  padding: 0.2rem;
   margin-top: 0.5rem;
 }
 
 pre {
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  background: hsla(0, 0%, 0%, 0.2);
+  border: 1px solid hsla(0, 0%, 0%, 0.25);
   overflow-x: auto;
   margin: 0;
 }
@@ -161,7 +167,7 @@ code {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: hsla(0, 0%, 100%, 0.1);
   border: none;
   border-radius: 4px;
   padding: 0.25rem;
@@ -170,7 +176,7 @@ code {
 }
 
 .copy-button:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: hsla(0, 0%, 100%, 0.2);
 }
 
 .copy-button svg {
@@ -182,7 +188,7 @@ code {
 .emoji-block {
   display: flex;
   align-items: center;
-  background: rgba(0, 220, 130, 0.1);
+  background: hsla(155, 100%, 43%, 0.1);
   border-radius: 6px;
   padding: 1rem;
   margin-top: 0.5rem;

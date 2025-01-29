@@ -50,8 +50,14 @@ const copyToClipboard = async () => {
         :aria-label="isCopied ? 'Copied' : 'Copy to clipboard'"
         @click="copyToClipboard"
       >
-        <CopyIcon v-if="!isCopied" />
-        <CheckIcon v-else />
+        <CopyIcon
+          v-if="!isCopied"
+          class="icon"
+        />
+        <CheckIcon
+          v-else
+          class="icon"
+        />
       </button>
     </div>
     <button
@@ -72,9 +78,10 @@ const copyToClipboard = async () => {
 .code-block {
   display: flex;
   align-items: center;
-  background: rgba(0, 0, 0, 0.3);
+  font-family: 'Courier New', Courier, monospace;
+  background: hsla(0, 0%, 0%, 0.25);
   border-radius: 8px;
-  padding: 1rem;
+  padding: 0.8rem 1rem;
   margin-bottom: 1rem;
 }
 
@@ -105,7 +112,7 @@ code {
 .icon {
   width: 18px;
   height: 18px;
-  margin-right: 0.5rem;
+  margin-right: 0.25rem;
 }
 
 @media (max-width: 768px) {
