@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useRouter } from 'vue-router'
 import { BookOpenIcon, GithubIcon, LifeBuoyIcon, HeartIcon } from 'lucide-vue-next'
+import { useRouter } from '#imports'
 
 const router = useRouter()
 const currentYear = computed(() => new Date().getFullYear())

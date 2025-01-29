@@ -4,7 +4,7 @@ import { GithubIcon, MenuIcon, XIcon } from 'lucide-vue-next'
 import { useRuntimeConfig } from '#app'
 
 const config = useRuntimeConfig()
-const version = config.public.version || 'alpha'
+const version = config.public.version || 'beta'
 
 const isScrolled = ref(false)
 const isMobileMenuOpen = ref(false)
@@ -60,7 +60,7 @@ const toggleMobileMenu = () => {
         <span
           class="version"
           :title="`Version ${version}`"
-        >v{{ version }}</span>
+        >{{ version }}</span>
       </div>
       <nav class="right">
         <LanguageSelector />
@@ -117,7 +117,7 @@ header {
 }
 
 header.scrolled {
-  padding: 0.5rem 1rem;
+  padding: 0.1rem 0.5rem;
   background: rgba(11, 15, 26, 0.95);
 }
 
@@ -135,6 +135,12 @@ header.scrolled {
   align-items: center;
 }
 
+.visually-hidden{
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
 .logo {
   display: none;
 }
@@ -144,6 +150,7 @@ header:hover .logo {
 }
 
 .version {
+  align-self: center;
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.6);
   margin-left: 0.5rem;

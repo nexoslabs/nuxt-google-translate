@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { CopyIcon, CheckIcon, RefreshCwIcon } from 'lucide-vue-next'
-import { useGoogleTranslate } from '#imports'
-
-const { activeLanguage } = useGoogleTranslate()
 
 const isCopied = ref(false)
 
@@ -16,7 +13,7 @@ const sampleTranslatedText = computed(() => ({
   add: '...',
 }))
 
-const currentSampleLanguage = ref<keyof typeof sampleTranslatedText.value>(activeLanguage.value as keyof typeof sampleTranslatedText.value)
+const currentSampleLanguage = ref<keyof typeof sampleTranslatedText.value>('npm')
 
 const changeSampleLanguage = () => {
   const languages = Object.keys(sampleTranslatedText.value)
