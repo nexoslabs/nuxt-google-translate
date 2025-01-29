@@ -1,3 +1,4 @@
+- chore: update deployment workflow to improve caching and artifact han… (#8)
 - Fix: Load Google Translate Script Asynchronously to Avoid `document.write()` Violation   (#7)
 - fixed some major bugs (#6)
 - fix(build): resolve vite rollup error for 'lucide-vue-next' (#3)
