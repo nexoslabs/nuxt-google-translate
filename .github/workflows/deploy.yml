@@ -44,9 +44,6 @@ jobs:
      - name: Build Playground
        run: npm run dev:build
 
-     - name: Install Playground Dependencies
-       run: npm playground && npm install
-
      - name: Generate Playground
        run: npm run dev:generate
 
