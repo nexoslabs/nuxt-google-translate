@@ -1,25 +1,22 @@
-# Nuxt Google Translate
+# Nuxt Google Translate 🙄
 
-[![npm](https://img.shields.io/npm/v/nuxt-google-translate?style=flat-square&color=cyan)](https://www.npmjs.com/package/nuxt-google-translate)
-![GitHub Pages](https://img.shields.io/github/deployments/nexoscreation/nuxt-google-translate/github-pages.svg?style=flat-square&color=cyan)
-![GitHub Latest Release](https://img.shields.io/github/v/release/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)
-![GitHub License](https://img.shields.io/github/license/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)
+[![npm version](https://img.shields.io/npm/v/nuxt-google-translate?style=flat-square&color=cyan)](https://www.npmjs.com/package/nuxt-google-translate)
+[![npm downloads](https://img.shields.io/npm/dt/nuxt-google-translate?style=flat-square&color=cyan)](https://www.npmjs.com/package/nuxt-google-translate)
+[![GitHub stars](https://img.shields.io/github/stars/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/nuxt-google-translate)
+[![GitHub code](https://img.shields.io/github/languages/code-size/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/nuxt-google-translate)
+[![GitHub License](https://img.shields.io/github/license/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/nuxt-google-translate)
 
-<!-- [![npm](https://img.shields.io/npm/dt/nuxt-google-translate)](https://www.npmjs.com/package/nuxt-google-translate)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/nexoscreation/nuxt-google-translate/ci)]() -->
+> Easily integrate Google Translate into your Nuxt 3 application with this powerful and customizable module.
 
-Easily integrate Google Translate into your Nuxt 3 application with this powerful and customizable module.
-
-## Features
+## 🌟 Features
 
 - 🌐 Seamless integration with Google Translate
 - 🚀 Easy to set up and use
 - 🎨 Customizable styling
-- 📱 Responsive design
+- 🤩 Support 100+ Languages
 - 🔧 Configurable default language and supported languages
 
-## Quick Setup
+## 🚀 Quick Start
 
 1. Add `nuxt-google-translate` dependency to your project
 
@@ -29,8 +26,7 @@ npm install --save-dev nuxt-google-translate
 
 2. Add `nuxt-google-translate` to the `modules` section of `nuxt.config.ts`
 
-
-```javascript
+```ts
 export default defineNuxtConfig({
   modules: [
     'nuxt-google-translate'
@@ -40,107 +36,42 @@ export default defineNuxtConfig({
 
 That's it! You can now use Nuxt Google Translate in your Nuxt app ✨
 
-## Usage
+## 📚 Documentation
 
-### Basic Usage
+Explore the full capabilities of **Nuxt Google Translate**:  
 
-Add the `<GoogleTranslate />` component to your layout or specific pages:
+- [📘 Basic Usage](https://nexoscreation.tech/docs/resources/google-translate#basic) – A comprehensive guide to all features.  
+- [🛠️ Configuration](https://nexoscreation.tech/docs/resources/google-translate#config) – Detailed installation and setup instructions.  
+- [🔧 Changing Language](https://nexoscreation.tech/docs/resources/google-translate#changing-lang) – How to switch between supported languages.  
 
-```vue
-<template>
-  <div>
-    <!--[ Init Google Translate ]-->
-    <GoogleTranslate />
-  </div>
-</template>
-```
+## 🤝 Contributing
 
-### Configuration
+We love contributions! Here's how you can help:
 
-You can configure the module in your `nuxt.config.ts`:
+1. 🍴 Fork the repository
+2. 🌿 Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. 💾 Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. 🚀 Push to the branch (`git push origin feature/AmazingFeature`)
+5. 🔃 Open a Pull Request
 
-```javascript
-export default defineNuxtConfig({
-  modules: ['nuxt-google-translate'],
-  googleTranslate: {
-    defaultLanguage: 'en',
-    supportedLanguages: ['en', 'fr', 'es', 'de', 'ja']
-  }
-})
-```
-
-### Changging Language
-
-Add the `<LanguageSelector />` component to your header or specific elements:
-
-```vue
-<template>
-  <div>
-    <!--[ Add Language Dropdown Menu ]-->
-    <LanguageSelector />
-  </div>
-</template>
-```
-
-### Using the Composable
-
-You can use the `useGoogleTranslate` composable in your components to programmatically change the language or access the current language and supported languages or is loading or not maybe:
-
-<!-- 
-```vue
-<script setup>
-import { useGoogleTranslate } from '#imports'
-
-const { activeLanguage, setLanguage, supportedLanguages } = useGoogleTranslate()
-
-// Change the language
-const changeLanguage = (lang) => {
-  setLanguage(lang)
-}
-</script>
-
-<template>
-  <div>
-    <p>Current language: {{ activeLanguage }}</p>
-    <select @change="changeLanguage($event.target.value)">
-      <option v-for="lang in supportedLanguages" :key="lang" :value="lang">
-        {{ lang }}
-      </option>
-    </select>
-  </div>
-</template>
-``` 
--->
-
-## Contributing
-
-Contributions are welcome! Please follow these steps to contribute:
-
-1. Fork the repository
-2. Create a new branch: `git checkout -b my-feature-branch`
-3. Make your changes and commit them: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-feature-branch`
-5. Submit a pull request
-
-
-Please make sure to update tests as appropriate and adhere to the existing coding style.
-
-## Troubleshooting
-
-If you encounter any issues while using this module, please check the following:
-
-1. Ensure you're using the latest version of the module
-2. Check that you've correctly added the module to your `nuxt.config.ts`
-3. Verify that the `<GoogleTranslate />` component is properly placed in your layout or pages
-4. Check the browser console for any error messages
-
-
-If you're still having problems, please [open an issue](https://github.com/nexoscreation/nuxt-google-translate/issues/new) with a detailed description of the problem, your Nuxt version, and any relevant code snippets.
+Check out our [Contribution Guidelines](CONTRIBUTING.md) for more details.
 
 ## License
 
-[MIT License](./LICENSE)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Questions or Feedback?
+## 🙏 Acknowledgements
 
-If you have any questions, suggestions, or feedback, please don't hesitate to [open an issue](https://github.com/nexoscreation/nuxt-google-translate/issues/new) or [submit a pull request](https://github.com/nexoscreation/nuxt-google-translate/pulls). We appreciate your input and want to make this module as useful as possible for the Nuxt community. 🚀
+- [Google Translate](https://translate.google.com/) - For enabling seamless language translation.  
+- [Nuxt](https://nuxt.com/) - For providing a powerful framework for building web applications.  
+- The open-source community - For the amazing tools and contributions that make this module possible.  
+
+---
+
+<p align="center">
+  Made with ❤️ by the Nexos Creation Team
+</p>
+
+<p align="center">
+  <a href="https://github.com/nexoscreation/nuxt-google-translate/stargazers">⭐ Star us on GitHub!</a>
+</p>

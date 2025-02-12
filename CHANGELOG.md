@@ -9,6 +9,28 @@
 # Changelog
 
 
+## v1.0.1
+
+[compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v0.9.1...v1.0.1)
+
+### 📖 Documentation
+
+- Update CHANGELOG.md for PR #1 ([#1](https://github.com/nexoscreation/nuxt-google-translate/issues/1))
+- Update CHANGELOG.md for PR #2 ([#2](https://github.com/nexoscreation/nuxt-google-translate/issues/2))
+- Update CHANGELOG.md for PR #3 ([#3](https://github.com/nexoscreation/nuxt-google-translate/issues/3))
+- Update CHANGELOG.md for PR #6 ([#6](https://github.com/nexoscreation/nuxt-google-translate/issues/6))
+- Update CHANGELOG.md for PR #7 ([#7](https://github.com/nexoscreation/nuxt-google-translate/issues/7))
+- Update CHANGELOG.md for PR #8 ([#8](https://github.com/nexoscreation/nuxt-google-translate/issues/8))
+- Update CHANGELOG.md for PR #8 ([#8](https://github.com/nexoscreation/nuxt-google-translate/issues/8))
+
+### 🏡 Chore
+
+- Remove redundant dependency installation step from deployment workflow ([edde6bb](https://github.com/nexoscreation/nuxt-google-translate/commit/edde6bb))
+
+### ❤️ Contributors
+
+- Nexos Creator ([@nexoscreator](http://github.com/nexoscreator))
+
 ## v0.9.1
 
 [compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v1.1.0...v0.9.1)
