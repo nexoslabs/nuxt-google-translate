@@ -1,6 +1,30 @@
 # Changelog
 
 
+## v1.1.0
+
+[compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v0.6.8...v1.1.0)
+
+### 🚀 Enhancements
+
+- Improve translation handling and language support ([c2a30a5](https://github.com/nexoscreation/nuxt-google-translate/commit/c2a30a5))
+- **LanguageSelector:** Enhance UI/UX for better language switching ([b9e4d85](https://github.com/nexoscreation/nuxt-google-translate/commit/b9e4d85))
+
+### 💅 Refactors
+
+- Move unused styles directory ([94393c5](https://github.com/nexoscreation/nuxt-google-translate/commit/94393c5))
+- Optimize composable logic for better performance ([3fd54a5](https://github.com/nexoscreation/nuxt-google-translate/commit/3fd54a5))
+- **GoogleTranslate:** Clean up code and improve readability ([9b65924](https://github.com/nexoscreation/nuxt-google-translate/commit/9b65924))
+
+### 🏡 Chore
+
+- **plugin:** Rename google-translate plugin to translate for better clarity ([5efccf3](https://github.com/nexoscreation/nuxt-google-translate/commit/5efccf3))
+- **release:** V1.0.0 - stable release ([26e06b9](https://github.com/nexoscreation/nuxt-google-translate/commit/26e06b9))
+
+### ❤️ Contributors
+
+- Nexoscreator ([@nexoscreator](http://github.com/nexoscreator))
+
 ## v0.6.8
 
 [compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v0.6.2...v0.6.8)
