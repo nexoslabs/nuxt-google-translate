@@ -1,40 +1,44 @@
 <script setup lang="ts">
-import { ref, watch, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useGoogleTranslate } from '../composables/useGoogleTranslate'
 
+// Get Google Translate state
 const { activeLanguage, supportedLanguages, setLanguage, isLoaded } = useGoogleTranslate()
-const selectedLanguage = ref(activeLanguage.value)
+
+// Selected language state (reactive)
+const selectedLanguage = computed(() => activeLanguage.value)
+
+// Dropdown visibility state
 const isOpen = ref(false)
 
-// Watch for changes in activeLanguage and update selectedLanguage
-watch(activeLanguage, (newLang) => {
-  selectedLanguage.value = newLang
-})
-
-// Change the language when a new option is selected
+// Function to change language
 const changeLanguage = (lang: string) => {
   setLanguage(lang)
   isOpen.value = false
 }
 
-// Toggle the dropdown
+// Toggle dropdown visibility
 const toggleDropdown = () => {
   if (isLoaded.value) {
     isOpen.value = !isOpen.value
   }
 }
 
-// Close the dropdown when clicking outside
+// Close dropdown when clicking outside
 const closeDropdown = (event: Event) => {
   if (isOpen.value && !(event.target as HTMLElement).closest('.language-selector')) {
     isOpen.value = false
   }
 }
 
-// Add event listener to close dropdown when clicking outside
-if (import.meta.client) {
+// Add event listener on mounted & cleanup on unmounted
+onMounted(() => {
   document.addEventListener('click', closeDropdown)
-}
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', closeDropdown)
+})
 
 // Language names mapping
 const languageNames: Record<string, string> = {
@@ -162,24 +166,18 @@ const languageNames: Record<string, string> = {
   'zu': 'Zulu',
 }
 
-// Get the full name of the language
-const getLanguageName = (langCode: string) => {
-  return languageNames[langCode] || langCode
-}
-
-// Compute the current language name
-const currentLanguageName = computed(() => getLanguageName(selectedLanguage.value))
+// Computed property for current language name
+const currentLanguageName = computed(() => languageNames[selectedLanguage.value] || selectedLanguage.value)
 </script>
 
 <template>
   <div class="language-selector">
-    <!-- Loading state -->
+    <!-- Show Loading state -->
     <div
       v-if="!isLoaded"
       class="language-loading"
     >
       <svg
-        xmlns="http://www.w3.org/2000/svg"
         class="loading-icon"
         viewBox="0 0 24 24"
       >
@@ -195,7 +193,7 @@ const currentLanguageName = computed(() => getLanguageName(selectedLanguage.valu
       <span>translator...</span>
     </div>
 
-    <!-- Loaded state -->
+    <!-- Language dropdown -->
     <div
       v-else
       class="language-dropdown notranslate"
@@ -203,7 +201,6 @@ const currentLanguageName = computed(() => getLanguageName(selectedLanguage.valu
     >
       <div class="selected-language">
         <svg
-          xmlns="http://www.w3.org/2000/svg"
           class="globe-icon"
           viewBox="0 0 24 24"
         >
@@ -221,7 +218,6 @@ const currentLanguageName = computed(() => getLanguageName(selectedLanguage.valu
         </svg>
         <span>{{ currentLanguageName }}</span>
         <svg
-          xmlns="http://www.w3.org/2000/svg"
           class="chevron-icon"
           :class="{ 'chevron-up': isOpen }"
           viewBox="0 0 24 24"
@@ -230,7 +226,7 @@ const currentLanguageName = computed(() => getLanguageName(selectedLanguage.valu
         </svg>
       </div>
 
-      <!-- Dropdown options -->
+      <!-- Dropdown list -->
       <ul
         v-if="isOpen"
         class="language-options"
@@ -241,7 +237,7 @@ const currentLanguageName = computed(() => getLanguageName(selectedLanguage.valu
           :class="{ active: lang === selectedLanguage }"
           @click="changeLanguage(lang)"
         >
-          {{ getLanguageName(lang) }}
+          {{ languageNames[lang] || lang }}
         </li>
       </ul>
     </div>
@@ -255,13 +251,12 @@ const currentLanguageName = computed(() => getLanguageName(selectedLanguage.valu
   font-size: 14px;
   font-weight: 500;
   color: hsl(155, 0%, 96%);
-  min-width: 75px;
-  max-width: 175px;
+  min-width: 120px;
 }
 
 .language-selector svg {
-  width: 20x;
-  height: 20px;
+  width: 18x;
+  height: 18px;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
@@ -281,7 +276,7 @@ const currentLanguageName = computed(() => getLanguageName(selectedLanguage.valu
 
 .loading-icon {
   animation: spin 1s linear infinite;
-  margin-right: 10px;
+  margin-right: 0.75rem;
 }
 
 .language-dropdown {
@@ -300,6 +295,7 @@ const currentLanguageName = computed(() => getLanguageName(selectedLanguage.valu
 .selected-language {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .globe-icon {
@@ -338,10 +334,7 @@ const currentLanguageName = computed(() => getLanguageName(selectedLanguage.valu
   transition: background-color 0.2s ease;
 }
 
-.language-options li:hover {
-  background-color: hsl(155, 0%, 24%);
-}
-
+.language-options li:hover,
 .language-options li.active {
   background-color: hsl(155, 0%, 24%);
   color: hsl(155, 0%, 92%);
@@ -349,7 +342,6 @@ const currentLanguageName = computed(() => getLanguageName(selectedLanguage.valu
 }
 
 .language-options::-webkit-scrollbar {
-
   width: 6px;
   -ms-overflow-style: none;
 }

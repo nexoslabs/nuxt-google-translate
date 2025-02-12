@@ -8,6 +8,66 @@
 # Changelog
 
 
+## v0.9.1
+
+[compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v1.1.0...v0.9.1)
+
+## v1.1.0
+
+[compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v0.6.8...v1.1.0)
+
+### 🚀 Enhancements
+
+- Improve translation handling and language support ([c2a30a5](https://github.com/nexoscreation/nuxt-google-translate/commit/c2a30a5))
+- **LanguageSelector:** Enhance UI/UX for better language switching ([b9e4d85](https://github.com/nexoscreation/nuxt-google-translate/commit/b9e4d85))
+
+### 💅 Refactors
+
+- Move unused styles directory ([94393c5](https://github.com/nexoscreation/nuxt-google-translate/commit/94393c5))
+- Optimize composable logic for better performance ([3fd54a5](https://github.com/nexoscreation/nuxt-google-translate/commit/3fd54a5))
+- **GoogleTranslate:** Clean up code and improve readability ([9b65924](https://github.com/nexoscreation/nuxt-google-translate/commit/9b65924))
+
+### 🏡 Chore
+
+- **plugin:** Rename google-translate plugin to translate for better clarity ([5efccf3](https://github.com/nexoscreation/nuxt-google-translate/commit/5efccf3))
+- **release:** V1.0.0 - stable release ([26e06b9](https://github.com/nexoscreation/nuxt-google-translate/commit/26e06b9))
+
+### ❤️ Contributors
+
+- Nexoscreator ([@nexoscreator](http://github.com/nexoscreator))
+
+## v0.6.8
+
+[compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v0.6.2...v0.6.8)
+
+### 🚀 Enhancements
+
+- Improved ui/ux ([643e376](https://github.com/nexoscreation/nuxt-google-translate/commit/643e376))
+- **nuxt.config:** Add lucide-vue-next to nitro externals ([0cf65e8](https://github.com/nexoscreation/nuxt-google-translate/commit/0cf65e8))
+
+### 🩹 Fixes
+
+- Ci workflow ([ee3a03a](https://github.com/nexoscreation/nuxt-google-translate/commit/ee3a03a))
+- Ci workflow" ([7a00e6f](https://github.com/nexoscreation/nuxt-google-translate/commit/7a00e6f))
+- **build:** Resolve vite rollup error for 'lucide-vue-next' ([b1bc701](https://github.com/nexoscreation/nuxt-google-translate/commit/b1bc701))
+- **useRouter:** Injection Not Found ([4b63869](https://github.com/nexoscreation/nuxt-google-translate/commit/4b63869))
+- **DemoSection:** Remove dependency on Google Translate and set default language ([9b2331f](https://github.com/nexoscreation/nuxt-google-translate/commit/9b2331f))
+
+### 💅 Refactors
+
+- Update deployment workflow and remove Google Translate styles ([efdee6e](https://github.com/nexoscreation/nuxt-google-translate/commit/efdee6e))
+- Update styling and improve layout across components ([c0a79c7](https://github.com/nexoscreation/nuxt-google-translate/commit/c0a79c7))
+
+### 🏡 Chore
+
+- Update v ([c734b1a](https://github.com/nexoscreation/nuxt-google-translate/commit/c734b1a))
+- Update package version to 0.6.7 and enhance Google Translate integration ([06ec65f](https://github.com/nexoscreation/nuxt-google-translate/commit/06ec65f))
+- Update deployment workflow to improve caching and artifact handling ([20e5329](https://github.com/nexoscreation/nuxt-google-translate/commit/20e5329))
+
+### ❤️ Contributors
+
+- Nexoscreator
+
 ## v0.6.2
 
 [compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v0.5.1...v0.6.2)

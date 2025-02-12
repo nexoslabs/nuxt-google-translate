@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import { useNuxtApp } from '#app'
 
 /**
@@ -8,30 +9,41 @@ export function useGoogleTranslate() {
   // Access the Nuxt app instance to get the injected $googleTranslate object
   const { $googleTranslate } = useNuxtApp()
 
+  // Check if the plugin is properly injected
+  if (!$googleTranslate) {
+    console.warn('[useGoogleTranslate] Google Translate plugin is not available. Ensure the plugin is loaded.')
+    return {
+      activeLanguage: computed(() => 'en'), // Default to English
+      supportedLanguages: computed(() => ['en']), // Default fallback
+      setLanguage: () => console.warn('[useGoogleTranslate] setLanguage() is unavailable.'),
+      isLoaded: computed(() => false),
+    }
+  }
+
   // Return an object with Google Translate functionality
   return {
     /**
      * Ref containing the currently active language
-     * @type {Ref<string>}
+     * @type {ComputedRef<string>}
      */
-    activeLanguage: $googleTranslate.activeLanguage,
+    activeLanguage: computed(() => $googleTranslate.activeLanguage.value),
 
     /**
      * Array of supported language codes
-     * @type {readonly string[]}
+     * @type {ComputedRef<readonly string[]>}
      */
-    supportedLanguages: $googleTranslate.supportedLanguages,
+    supportedLanguages: computed(() => $googleTranslate.supportedLanguages),
 
     /**
      * Function to set the active language
      * @param {string} lang - The language code to set
      */
-    setLanguage: $googleTranslate.setLanguage,
+    setLanguage: (lang: string) => $googleTranslate.setLanguage(lang),
 
     /**
      * Ref indicating whether the Google Translate script has been loaded
-     * @type {Ref<boolean>}
+     * @type {ComputedRef<boolean>}
      */
-    isLoaded: $googleTranslate.isLoaded,
+    isLoaded: computed(() => $googleTranslate.isLoaded.value),
   }
 }

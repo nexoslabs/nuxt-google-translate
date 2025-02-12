@@ -1,5 +1,6 @@
 import { defineNuxtModule, addComponent, addImports, addPlugin, createResolver } from '@nuxt/kit'
 import type { Nuxt } from '@nuxt/schema'
+import { defu } from 'defu'
 
 /**
  * Module options interface
@@ -26,12 +27,12 @@ export default defineNuxtModule<ModuleOptions>({
     supportedLanguages: ['en', 'fr', 'hi', 'id', 'ru', 'ko'],
   },
   setup(options, nuxt: Nuxt) {
-    const { resolve } = createResolver(import.meta.url)
+    const { resolve } = createResolver(import.meta.url || __filename)
 
     // Validate the default language
-    if (!options.supportedLanguages.includes(options.defaultLanguage)) {
+    if (!Array.isArray(options.supportedLanguages) || !options.supportedLanguages.includes(options.defaultLanguage)) {
       throw new Error(
-        `[nuxt-google-translate] Unsupported defaultLanguage: '${options.defaultLanguage}'. Supported languages are: ${options.supportedLanguages.join(', ')}`,
+        `[nuxt-google-translate] Unsupported defaultLanguage: '${options.defaultLanguage}'. Supported languages are: ${options.supportedLanguages?.join(', ')}`,
       )
     }
 
@@ -53,17 +54,20 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     // Add the Google Translate plugin
-    addPlugin(resolve('./runtime/plugins/google-translate'))
+    addPlugin({
+      src: resolve('./runtime/plugins/translate'),
+      mode: 'client', // or 'server' if needed
+    })
 
     // Provide runtime configuration
-    nuxt.options.runtimeConfig.public.googleTranslate = {
+    nuxt.options.runtimeConfig.public.googleTranslate = defu(nuxt.options.runtimeConfig.public.googleTranslate, {
       defaultLanguage: options.defaultLanguage,
       supportedLanguages: options.supportedLanguages,
-    } as { defaultLanguage: string, supportedLanguages: string[] }
+    })
 
     // Log initialization information
     console.info(
-      `\x1B[32m[nuxt-google-translate] Initialization Details:\x1B[0m\n`
+      `\x1B[32m[nuxt-google-translate] Successfully initialized!\x1B[0m\n`
       + `\x1B[36m- Default Language: \x1B[33m${options.defaultLanguage}\x1B[0m\n`
       + `\x1B[36m- Supported Languages: \x1B[33m${options.supportedLanguages?.length}\x1B[0m`,
     )
