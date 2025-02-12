@@ -1,3 +1,4 @@
+- Chore(docs): Updated (#12)
 - chore(release): v1.0.0 - stable release with improved translation module (#11)
 - chore: update deployment workflow to improve caching and artifact han… (#8)
 - chore: update deployment workflow to improve caching and artifact han… (#8)
