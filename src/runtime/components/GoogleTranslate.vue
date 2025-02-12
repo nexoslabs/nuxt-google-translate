@@ -12,9 +12,12 @@
 </script>
 
 <style scoped>
-/* Google Translate widget */
+/* Initially hide the translate element until loaded */
 #nuxt_translate_element {
-  display: none !important;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 /* Global Styles for Google Translate */
@@ -23,7 +26,15 @@
   top: 0 !important;
 }
 
-/* Hide the Google Translate attribution */
+/* Once loaded, make it visible but keep it non-intrusive */
+:global(.goog-te-gadget) {
+  display: inline-block !important;
+  opacity: 0;
+  /* Hide it while still working */
+  pointer-events: none;
+}
+
+/* Hide unnecessary Google Translate UI elements */
 :global(.goog-te-banner-frame),
 :global(.goog-te-gadget-simple),
 :global(.goog-gt-tt),
