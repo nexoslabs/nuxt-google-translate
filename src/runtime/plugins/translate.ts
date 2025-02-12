@@ -18,12 +18,11 @@ interface GoogleTranslateConfig {
 
 /**
  * Extend Window interface to include Google Translate types
- * This provides TypeScript support for the Google Translate API
  */
 declare global {
   interface Window {
-    google: {
-      translate: {
+    google?: {
+      translate?: {
         TranslateElement: {
           new(config: GoogleTranslateConfig, elementId: string): void
           InlineLayout: {
@@ -34,7 +33,7 @@ declare global {
         }
       }
     }
-    googleTranslateElementInit: () => void
+    googleTranslateElementInit?: () => void
   }
 }
 
@@ -69,53 +68,62 @@ export default defineNuxtPlugin((nuxtApp) => {
    * @param {string} lang - The language code to update to
    */
   const updateGoogleTranslate = (lang: string) => {
-    if (import.meta.client && isLoaded.value) {
-      const select = document.querySelector('.goog-te-combo') as HTMLSelectElement
-      if (select) {
-        select.value = lang
-        select.dispatchEvent(new Event('change'))
-      }
+    if (!import.meta.client || !isLoaded.value) return
+
+    // Find the Google Translate iframe
+    const select = document.querySelector('.goog-te-combo') as HTMLSelectElement
+    if (select) {
+      select.value = lang
+      select.dispatchEvent(new Event('change'))
     }
   }
 
   /**
-   * Loads the Google Translate script and initializes the widget
+   * Initializes the Google Translate widget
+   */
+  const initializeGoogleTranslate = () => {
+    if (!window.google?.translate?.TranslateElement) return
+
+    new window.google.translate.TranslateElement(
+      {
+        pageLanguage: defaultLanguage,
+        includedLanguages: supportedLanguages.join(','),
+        layout: window.google.translate.TranslateElement.InlineLayout.VERTICAL,
+        autoDisplay: false,
+      },
+      'nuxt_translate_element',
+    )
+    isLoaded.value = true
+    updateGoogleTranslate(activeLanguage.value)
+  }
+
+  /**
+   * Loads the Google Translate script dynamically
    * Only runs once on client-side when the widget hasn't been loaded
    */
   const loadGoogleTranslate = () => {
-    if (import.meta.client && !isLoaded.value) {
-      if (document.querySelector('#google-translate-script')) return
+    if (!import.meta.client || isLoaded.value) return
 
-      // Create and append the Google Translate script
-      const script = document.createElement('script')
-      script.id = 'google-translate-script'
-      script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
-      script.async = true // Ensures that script is loaded asynchronously
-      script.defer = true // Prevents blocking of other elements on page load
-
-      script.onload = () => {
-        // Initialize the Google Translate widget when the script loads
-        window.googleTranslateElementInit = () => {
-          new window.google.translate.TranslateElement(
-            {
-              pageLanguage: defaultLanguage,
-              includedLanguages: supportedLanguages.join(','),
-              layout: window.google.translate.TranslateElement.InlineLayout.VERTICAL,
-              autoDisplay: false,
-            },
-            'nuxt_translate_element',
-          )
-          // Mark as loaded and update to initial language
-          isLoaded.value = true
-          updateGoogleTranslate(activeLanguage.value)
-        }
-      }
-
-      // Append the script **AFTER** the page has loaded
-      window.addEventListener('load', () => {
-        document.body.appendChild(script)
-      })
+    // Check if Google Translate is already loaded
+    if (window.google?.translate?.TranslateElement) {
+      initializeGoogleTranslate()
+      return
     }
+    if (document.querySelector('#google-translate-script')) return
+
+    // Define `googleTranslateElementInit` BEFORE loading the script
+    window.googleTranslateElementInit = initializeGoogleTranslate
+
+    // Create and append the Google Translate script
+    const script = document.createElement('script')
+    script.id = 'google-translate-script'
+    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
+    script.async = true
+    script.defer = true
+
+    script.onload = initializeGoogleTranslate // Ensure it's initialized when loaded
+
+    document.body.appendChild(script)
   }
 
   // Load Google Translate when the app is mounted (client-side only)

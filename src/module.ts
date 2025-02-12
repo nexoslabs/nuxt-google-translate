@@ -55,7 +55,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Add the Google Translate plugin
     addPlugin({
-      src: resolve('./runtime/plugins/google-translate'),
+      src: resolve('./runtime/plugins/translate'),
       mode: 'client', // or 'server' if needed
     })
 
