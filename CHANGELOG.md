@@ -1,3 +1,4 @@
+- chore(release): v1.0.0 - stable release with improved translation module (#11)
 - chore: update deployment workflow to improve caching and artifact han… (#8)
 - chore: update deployment workflow to improve caching and artifact han… (#8)
 - Fix: Load Google Translate Script Asynchronously to Avoid `document.write()` Violation   (#7)
