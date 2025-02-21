@@ -8,8 +8,7 @@
 
 # 🚀 Nuxt Google Translate
 
-![Project Banner](<image-url>)
-
+![Project Banner](https://github.com/user-attachments/assets/fd43e328-daa8-47e5-833a-075bdab3a757)
 > 🌍 Easily integrate Google Translate into your Nuxt 3 application with this powerful and customizable module.
 
 ---
@@ -26,47 +25,55 @@
 
 ## 🚀 Quick Start
 
-Follow these steps to set up **Nuxt Google Translate** on your machine.
+Follow these steps to set up **Nuxt Google Translate** in your Nuxt project. 
 
 ### 🔧 **Prerequisites**
 
-- Ensure you have **Node.js**,**npm** installed.
-- A Nuxt Project.
+- Ensure you have **Node.js** and **npm** installed.  
+- A Nuxt 3 project ready to go.  
 
 ### ⚡ **Installation Steps**
 
-1. Add `nuxt-google-translate` dependency to your project
+1. **Install the Module**  
+   Add the dependency to your project:  
+   ```bash
+   npm install nuxt-google-translate
+   ```  
 
-```bash
-npm install --save-dev nuxt-google-translate
-```
+3. **Use the Component**  
+   Add the `<GoogleTranslate />` component to your app layout or `app.vue`:  
+   ```vue
+   <template>
+     <ClientOnly>
+       <GoogleTranslate />       
+     </ClientOnly>
+   </template>
+   ```  
 
-2. Add `nuxt-google-translate` to the `modules` section of `nuxt.config.ts`
-
-```ts
-export default defineNuxtConfig({
-  modules: ["nuxt-google-translate"],
-});
-```
-
-That's it! You can now use Nuxt Google Translate in your Nuxt app ✨
+That's it! Your Nuxt app now supports multiple languages with Google Translate. 🎉 
 
 ### 🎯 Usage
 
-How to use the project:
+You can also use the `<LanguageSelector />` component for a dropdown menu to switch languages:  
 
 ```vue
-
+<template>
+  <div>
+    <LanguageSelector />
+  </div>
+</template>
 ```
+
+For more advanced configurations, check out the [📘 Full Documentation](https://nexoscreation.tech/docs/resources/google-translate). 🚀  
 
 ---
 
 ## 🔗 Useful Links
 
-[![Web Demo](https://img.shields.io/badge/Web-Demo-blue?style=for-the-badge&logo=google-chrome)](https://nexoscreation.github.io/nuxt-google-translate/)
+[![Website Demo](https://img.shields.io/badge/Web-Demo-blue?style=for-the-badge&logo=google-chrome)](https://nexoscreation.github.io/nuxt-google-translate/)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-green?style=for-the-badge&logo=github)](https://github.com/nexoscreation/nuxt-google-translate)
 [![YouTube Video](https://img.shields.io/badge/YouTube-Video-red?style=for-the-badge&logo=youtube)](youtube-video-url)
-[![📖 Documentation](https://img.shields.io/badge/Documentation-Read%20Now-blue?style=for-the-badge&logo=readthedocs)](https://nexoscreation.tech/docs/resources/google-translate)
+[![Documentation](https://img.shields.io/badge/Documentation-Read%20Now-blue?style=for-the-badge&logo=readthedocs)](https://nexoscreation.tech/docs/resources/google-translate)
 
 ---
 
