@@ -1,3 +1,4 @@
+- fix: improve language handling and error handling in Google Translate (#14)
 # Changelog
 
 
