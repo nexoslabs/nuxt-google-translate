@@ -53,12 +53,12 @@ export default defineNuxtPlugin((nuxtApp) => {
    * @param {string} lang - The language code to set
    */
   const setLanguage = (lang: string) => {
-    if (supportedLanguages.includes(lang)) {
+    if (supportedLanguages.includes(lang) && lang !== activeLanguage.value) {
       activeLanguage.value = lang
       updateGoogleTranslate(lang)
     }
     else {
-      console.warn(`[nuxt-google-translate] Unsupported language: ${lang}. Using default.`)
+      console.warn(`[nuxt-google-translate] Unsupported language: ${lang}.`)
     }
   }
 
@@ -122,6 +122,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     script.defer = true
 
     script.onload = initializeGoogleTranslate // Ensure it's initialized when loaded
+    script.onerror = () => console.error('[nuxt-google-translate] Failed to load Google Translate script.')
 
     document.body.appendChild(script)
   }

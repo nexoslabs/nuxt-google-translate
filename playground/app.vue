@@ -14,7 +14,9 @@ import AppFooter from './components/AppFooter.vue'
     </main>
     <AppFooter />
     <div class="utility">
-      <GoogleTranslate />
+      <ClientOnly>
+        <GoogleTranslate />
+      </ClientOnly>
     </div>
   </div>
 </template>

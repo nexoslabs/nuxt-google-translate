@@ -1,12 +1,3 @@
-- Chore(docs): Updated (#12)
-- chore(release): v1.0.0 - stable release with improved translation module (#11)
-- chore: update deployment workflow to improve caching and artifact han… (#8)
-- chore: update deployment workflow to improve caching and artifact han… (#8)
-- Fix: Load Google Translate Script Asynchronously to Avoid `document.write()` Violation   (#7)
-- fixed some major bugs (#6)
-- fix(build): resolve vite rollup error for 'lucide-vue-next' (#3)
-- v0.6.2 (#2)
-- v0.5.0 (#1)
 # Changelog
 
 

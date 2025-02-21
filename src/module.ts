@@ -24,10 +24,13 @@ export default defineNuxtModule<ModuleOptions>({
   // Default configuration options
   defaults: {
     defaultLanguage: 'en',
-    supportedLanguages: ['en', 'fr', 'hi', 'id', 'ru', 'ko'],
+    supportedLanguages: ['en'],
   },
   setup(options, nuxt: Nuxt) {
     const { resolve } = createResolver(import.meta.url || __filename)
+
+    // Ensure supportedLanguages is a unique array
+    options.supportedLanguages = Array.from(new Set(options.supportedLanguages))
 
     // Validate the default language
     if (!Array.isArray(options.supportedLanguages) || !options.supportedLanguages.includes(options.defaultLanguage)) {

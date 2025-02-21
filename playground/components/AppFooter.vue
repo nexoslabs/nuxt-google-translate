@@ -7,7 +7,7 @@ const router = useRouter()
 const currentYear = computed(() => new Date().getFullYear())
 
 const footerLinks = [
-  { name: 'Documentation', href: 'https://nexoscreation.tech/docs/google-translate', icon: BookOpenIcon },
+  { name: 'Documentation', href: 'https://www.nexoscreation.tech/docs/resources/google-translate', icon: BookOpenIcon },
   { name: 'GitHub', href: 'https://github.com/nexoscreation/nuxt-google-translate', icon: GithubIcon },
   { name: 'Support', href: 'https://discord.com/invite/8Hbh5Y9CMd', icon: LifeBuoyIcon },
 ]
