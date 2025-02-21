@@ -28,21 +28,20 @@ npm install --save-dev nuxt-google-translate
 
 ```ts
 export default defineNuxtConfig({
-  modules: [
-    'nuxt-google-translate'
-  ]
-})
+  modules: ["nuxt-google-translate"],
+});
 ```
 
 That's it! You can now use Nuxt Google Translate in your Nuxt app ✨
 
 ## 📚 Documentation
 
-Explore the full capabilities of **Nuxt Google Translate**:  
+Explore the full capabilities of **Nuxt Google Translate**:
 
-- [📘 Basic Usage](https://nexoscreation.tech/docs/resources/google-translate#basic) – A comprehensive guide to all features.  
-- [🛠️ Configuration](https://nexoscreation.tech/docs/resources/google-translate#config) – Detailed installation and setup instructions.  
-- [🔧 Changing Language](https://nexoscreation.tech/docs/resources/google-translate#changing-lang) – How to switch between supported languages.  
+- [📘 Quick Setup](https://www.nexoscreation.tech/docs/resources/google-translate#quick-setup) – Get started quickly with a step-by-step guide.
+- [🛠️ Configuration Options](https://www.nexoscreation.tech/docs/resources/google-translate#configuration-options) – Learn how to customize the module.
+- [🔧 Usage Example](https://www.nexoscreation.tech/docs/resources/google-translate#usage-examples) – See how to switch between supported languages.
+- [🌍 Supported Languages](https://www.nexoscreation.tech/docs/resources/google-translate#changing-lang) – View all available language options.
 
 ## 🤝 Contributing
 
@@ -62,9 +61,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgements
 
-- [Google Translate](https://translate.google.com/) - For enabling seamless language translation.  
-- [Nuxt](https://nuxt.com/) - For providing a powerful framework for building web applications.  
-- The open-source community - For the amazing tools and contributions that make this module possible.  
+- [Google Translate](https://translate.google.com/) - For enabling seamless language translation.
+- [Nuxt](https://nuxt.com/) - For providing a powerful framework for building web applications.
+- The open-source community - For the amazing tools and contributions that make this module possible.
 
 ---
 

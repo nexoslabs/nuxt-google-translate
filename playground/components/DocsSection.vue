@@ -10,7 +10,7 @@ const installationSteps = [
 ]
 
 const codeSnippets = {
-  install: `npm install nuxt-google-translate\n# or\nyarn add nuxt-google-translate`,
+  install: `npm install nuxt-google-translate`, // \n# or\nyarn add nuxt-google-translate
   config: `// nuxt.config.js
 export default {
   modules: [
@@ -25,16 +25,8 @@ export default {
   <div>
     <!-- Initialize Google Translate -->
     <GoogleTranslate />
-    <!-- Add Language Dropdown Menu -->
-    <LanguageSelector />
   </div>
 </template>
-
-<script setup lang="ts">
-import { useGoogleTranslate } from '#imports'
-
-const { activeLanguage, setLanguage } = useGoogleTranslate()
-</script&gt;
 `,
 }
 
@@ -96,7 +88,8 @@ const copyToClipboard = async (code: keyof typeof codeSnippets) => {
               class="emoji"
               aria-hidden="true"
             >🎉</span>
-            <span>You're all set!</span>
+            <span>You're all set! <a href="https://www.nexoscreation.tech/docs/resources/google-translate">Read More
+              Documation here.</a></span>
           </div>
         </li>
       </ol>
