@@ -1,12 +1,18 @@
-# Nuxt Google Translate 🙄
-
 [![npm version](https://img.shields.io/npm/v/nuxt-google-translate?style=flat-square&color=cyan)](https://www.npmjs.com/package/nuxt-google-translate)
 [![npm downloads](https://img.shields.io/npm/dt/nuxt-google-translate?style=flat-square&color=cyan)](https://www.npmjs.com/package/nuxt-google-translate)
 [![GitHub stars](https://img.shields.io/github/stars/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/nuxt-google-translate)
 [![GitHub code](https://img.shields.io/github/languages/code-size/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/nuxt-google-translate)
 [![GitHub License](https://img.shields.io/github/license/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/nuxt-google-translate)
 
-> Easily integrate Google Translate into your Nuxt 3 application with this powerful and customizable module.
+---
+
+# 🚀 Nuxt Google Translate
+
+![Project Banner](<image-url>)
+
+> 🌍 Easily integrate Google Translate into your Nuxt 3 application with this powerful and customizable module.
+
+---
 
 ## 🌟 Features
 
@@ -16,7 +22,18 @@
 - 🤩 Support 100+ Languages
 - 🔧 Configurable default language and supported languages
 
+---
+
 ## 🚀 Quick Start
+
+Follow these steps to set up **Nuxt Google Translate** on your machine.
+
+### 🔧 **Prerequisites**
+
+- Ensure you have **Node.js**,**npm** installed.
+- A Nuxt Project.
+
+### ⚡ **Installation Steps**
 
 1. Add `nuxt-google-translate` dependency to your project
 
@@ -34,30 +51,44 @@ export default defineNuxtConfig({
 
 That's it! You can now use Nuxt Google Translate in your Nuxt app ✨
 
-## 📚 Documentation
+### 🎯 Usage
 
-Explore the full capabilities of **Nuxt Google Translate**:
+How to use the project:
 
-- [📘 Quick Setup](https://www.nexoscreation.tech/docs/resources/google-translate#quick-setup) – Get started quickly with a step-by-step guide.
-- [🛠️ Configuration Options](https://www.nexoscreation.tech/docs/resources/google-translate#configuration-options) – Learn how to customize the module.
-- [🔧 Usage Example](https://www.nexoscreation.tech/docs/resources/google-translate#usage-examples) – See how to switch between supported languages.
-- [🌍 Supported Languages](https://www.nexoscreation.tech/docs/resources/google-translate#changing-lang) – View all available language options.
+```vue
+
+```
+
+---
+
+## 🔗 Useful Links
+
+[![Web Demo](https://img.shields.io/badge/Web-Demo-blue?style=for-the-badge&logo=google-chrome)](https://nexoscreation.github.io/nuxt-google-translate/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-green?style=for-the-badge&logo=github)](https://github.com/nexoscreation/nuxt-google-translate)
+[![YouTube Video](https://img.shields.io/badge/YouTube-Video-red?style=for-the-badge&logo=youtube)](youtube-video-url)
+[![📖 Documentation](https://img.shields.io/badge/Documentation-Read%20Now-blue?style=for-the-badge&logo=readthedocs)](https://nexoscreation.tech/docs/resources/google-translate)
+
+---
 
 ## 🤝 Contributing
 
-We love contributions! Here's how you can help:
+We ❤️ contributions! Follow these steps to contribute:
 
-1. 🍴 Fork the repository
-2. 🌿 Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. 💾 Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. 🚀 Push to the branch (`git push origin feature/AmazingFeature`)
-5. 🔃 Open a Pull Request
+1. 🍴 **Fork** the repository
+2. 🌿 **Create** a new branch (`git checkout -b feature/AmazingFeature`)
+3. 💾 **Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
+4. 🚀 **Push** to the branch (`git push origin feature/AmazingFeature`)
+5. 🔃 **Open a Pull Request**
 
-Check out our [Contribution Guidelines](CONTRIBUTING.md) for more details.
+📖 _See our [Contribution Guidelines](CONTRIBUTING.md) for more details._
 
-## License
+---
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 📄 License
+
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+
+---
 
 ## 🙏 Acknowledgements
 
@@ -66,6 +97,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - The open-source community - For the amazing tools and contributions that make this module possible.
 
 ---
+
+## 📬 **Contact & Community**
+
+💬 Join us on **Discord**: [Click Here](https://discord.gg/H7pVc9aUK2)  
+🐦 **Follow on Twitter**: [@nexoscreation](https://twitter.com/nexoscreation)  
+📧 **Email**: [contact@nexoscreation.tech](mailto:contact@nexoscreation.tech)
 
 <p align="center">
   Made with ❤️ by the Nexos Creation Team
