@@ -11,11 +11,10 @@ export function useGoogleTranslate() {
 
   // Check if the plugin is properly injected
   if (!$googleTranslate) {
-    console.warn('[useGoogleTranslate] Google Translate plugin is not available. Ensure the plugin is loaded.')
     return {
       activeLanguage: computed(() => 'en'), // Default to English
       supportedLanguages: computed(() => ['en']), // Default fallback
-      setLanguage: () => console.warn('[useGoogleTranslate] setLanguage() is unavailable.'),
+      setLanguage: () => {},
       isLoaded: computed(() => false),
     }
   }
