@@ -9,6 +9,7 @@
 # 🚀 Nuxt Google Translate
 
 ![Project Banner](https://github.com/user-attachments/assets/fd43e328-daa8-47e5-833a-075bdab3a757)
+
 > 🌍 Easily integrate Google Translate into your Nuxt 3 application with this powerful and customizable module.
 
 ---
@@ -72,7 +73,7 @@ For more advanced configurations, check out the [📘 Full Documentation](https:
 
 [![Website Demo](https://img.shields.io/badge/Web-Demo-blue?style=for-the-badge&logo=google-chrome)](https://nexoscreation.github.io/nuxt-google-translate/)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-green?style=for-the-badge&logo=github)](https://github.com/nexoscreation/nuxt-google-translate)
-[![YouTube Video](https://img.shields.io/badge/YouTube-Video-red?style=for-the-badge&logo=youtube)](youtube-video-url)
+[![YouTube Video](https://img.shields.io/badge/YouTube-Video-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=vapgAOjdSMQ)
 [![Documentation](https://img.shields.io/badge/Documentation-Read%20Now-blue?style=for-the-badge&logo=readthedocs)](https://nexoscreation.tech/docs/resources/google-translate)
 
 ---
