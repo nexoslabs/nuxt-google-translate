@@ -153,6 +153,7 @@ const languageNames: Record<string, string> = {
   'ru': 'Russian',
   'sr': 'Serbian',
   'es': 'Spanish',
+  'su': 'Sunda',
   'sw': 'Swahili',
   'sv': 'Swedish',
   'ta': 'Tamil',
