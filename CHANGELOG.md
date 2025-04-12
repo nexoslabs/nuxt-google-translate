@@ -2,6 +2,34 @@
 # Changelog
 
 
+## v1.3.0
+
+[compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v1.2.0...v1.3.0)
+
+### 🚀 Enhancements
+
+- **translate:** Sync active language with googtrans cookie ([7e4da5b](https://github.com/nexoscreation/nuxt-google-translate/commit/7e4da5b))
+
+### 💅 Refactors
+
+- Community guide ([b748d87](https://github.com/nexoscreation/nuxt-google-translate/commit/b748d87))
+
+### 📖 Documentation
+
+- Update README.md ([e0e0329](https://github.com/nexoscreation/nuxt-google-translate/commit/e0e0329))
+- Update yt link ([9c412ff](https://github.com/nexoscreation/nuxt-google-translate/commit/9c412ff))
+
+### 🏡 Chore
+
+- Update dependencies ([b2f5b5f](https://github.com/nexoscreation/nuxt-google-translate/commit/b2f5b5f))
+- **release:** V1.1.0 ([d748a58](https://github.com/nexoscreation/nuxt-google-translate/commit/d748a58))
+
+### ❤️ Contributors
+
+- Nexoscreator ([@nexoscreator](http://github.com/nexoscreator))
+- Unknown <nexoscreator@gmail.com>
+- Nexos Creator ([@nexoscreator](http://github.com/nexoscreator))
+
 ## v1.1.0
 
 [compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v1.2.0...v1.1.0)
