@@ -46,6 +46,19 @@ export default defineNuxtPlugin((nuxtApp) => {
   const defaultLanguage = options?.defaultLanguage ?? 'en'
   const supportedLanguages = options?.supportedLanguages ?? ['en']
   const activeLanguage = ref(defaultLanguage)
+  // Read from googtrans cookie on init (client-side only)
+  if (import.meta.client) {
+    const cookieLang = document.cookie
+      .split('; ')
+      .find(row => row.startsWith('googtrans='))
+      ?.split('=')[1]
+      ?.split('/')[2] // gets the target language from '/en/gu'
+
+    if (cookieLang && supportedLanguages.includes(cookieLang)) {
+      activeLanguage.value = cookieLang
+    }
+  }
+
   const isLoaded = ref(false)
 
   /**
@@ -56,6 +69,11 @@ export default defineNuxtPlugin((nuxtApp) => {
     if (supportedLanguages.includes(lang) && lang !== activeLanguage.value) {
       activeLanguage.value = lang
       updateGoogleTranslate(lang)
+
+      // Set googtrans cookie
+      if (import.meta.client) {
+        document.cookie = `googtrans=/en/${lang};path=/;`
+      }
     }
     else {
       console.warn(`[nuxt-google-translate] Unsupported language: ${lang}.`)
