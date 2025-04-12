@@ -1,3 +1,23 @@
 {
-  "eslint.experimental.useFlatConfig": true
+  "eslint.experimental.useFlatConfig": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/*.meta": true,
+    "**/*.fbx": true,
+    "Cache/": true,
+    "Libraries/": true
+  },
+  "workbench.colorTheme": "Default Dark Modern",
+  "editor.semanticTokenColorCustomizations": {
+    "rules": {
+      "*.deprecated": {
+        "fontStyle": "strikethrough"
+      }
+    }
+  },
+  "path-intellisense.extensionOnImport": true
 }

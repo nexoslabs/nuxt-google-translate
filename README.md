@@ -2,7 +2,7 @@
 [![npm downloads](https://img.shields.io/npm/dt/nuxt-google-translate?style=flat-square&color=cyan)](https://www.npmjs.com/package/nuxt-google-translate)
 [![GitHub stars](https://img.shields.io/github/stars/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/nuxt-google-translate)
 [![GitHub code](https://img.shields.io/github/languages/code-size/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/nuxt-google-translate)
-[![GitHub License](https://img.shields.io/github/license/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/nuxt-google-translate)
+[![GitHub license](https://img.shields.io/github/license/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/nuxt-google-translate)
 
 ---
 
