@@ -66,7 +66,23 @@ export default defineNuxtPlugin((nuxtApp) => {
    * @param {string} lang - The language code to set
    */
   const setLanguage = (lang: string) => {
-    if (supportedLanguages.includes(lang) && lang !== activeLanguage.value) {
+    if (!supportedLanguages.includes(lang)) {
+      console.warn(`[nuxt-google-translate] Unsupported language: ${lang}.`)
+      return
+    }
+
+    if (lang === defaultLanguage) {
+      // Clear the googtrans cookie and reload the page to restore original content
+      document.cookie = 'googtrans=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT'
+      // Optionally reload only if a translation had been applied
+      if (activeLanguage.value !== defaultLanguage) {
+        location.reload()
+      }
+      activeLanguage.value = defaultLanguage
+      return
+    }
+
+    if (lang !== activeLanguage.value) {
       activeLanguage.value = lang
       updateGoogleTranslate(lang)
 
@@ -74,9 +90,6 @@ export default defineNuxtPlugin((nuxtApp) => {
       if (import.meta.client) {
         document.cookie = `googtrans=/en/${lang};path=/;`
       }
-    }
-    else {
-      console.warn(`[nuxt-google-translate] Unsupported language: ${lang}.`)
     }
   }
 
@@ -122,17 +135,17 @@ export default defineNuxtPlugin((nuxtApp) => {
   const loadGoogleTranslate = () => {
     if (!import.meta.client || isLoaded.value) return
 
-    // Check if Google Translate is already loaded
+    // Already loaded?
     if (window.google?.translate?.TranslateElement) {
       initializeGoogleTranslate()
       return
     }
     if (document.querySelector('#google-translate-script')) return
 
-    // Define `googleTranslateElementInit` BEFORE loading the script
+    // Define `googleTranslateElementInit` before loading
     window.googleTranslateElementInit = initializeGoogleTranslate
 
-    // Create and append the Google Translate script
+    // Create and append script
     const script = document.createElement('script')
     script.id = 'google-translate-script'
     script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'

@@ -166,8 +166,11 @@ const languageNames: Record<string, string> = {
   'zu': 'Zulu',
 }
 
+const getLangName = (code: string): string =>
+  languageNames[code] || new Intl.DisplayNames([code], { type: 'language' }).of(code) || code
+
 // Computed property for current language name
-const currentLanguageName = computed(() => languageNames[selectedLanguage.value] || selectedLanguage.value)
+const currentLanguageName = computed(() => getLangName(selectedLanguage.value))
 </script>
 
 <template>
