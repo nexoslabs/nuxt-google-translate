@@ -2,6 +2,22 @@
 # Changelog
 
 
+## v1.3.1
+
+[compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v1.3.0...v1.3.1)
+
+### 🩹 Fixes
+
+- **translation:** Restore original content when switching back to default language ([109a8a2](https://github.com/nexoscreation/nuxt-google-translate/commit/109a8a2))
+
+### 🏡 Chore
+
+- **release:** V1.3.0 ([79838c0](https://github.com/nexoscreation/nuxt-google-translate/commit/79838c0))
+
+### ❤️ Contributors
+
+- Nexoscreator ([@nexoscreator](http://github.com/nexoscreator))
+
 ## v1.3.0
 
 [compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v1.2.0...v1.3.0)
