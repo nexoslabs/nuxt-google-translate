@@ -61,6 +61,23 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   const isLoaded = ref(false)
 
+  const deleteGoogtransCookie = () => {
+    const cookieName = 'googtrans'
+    const expiry = 'expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+
+    // Delete for current domain
+    document.cookie = `${cookieName}=; ${expiry}`
+
+    // Delete for exact hostname
+    document.cookie = `${cookieName}=; ${expiry} domain=${window.location.hostname};`
+
+    // Delete for base domain (if applicable)
+    const baseDomain = window.location.hostname.split('.').slice(-2).join('.')
+    if (baseDomain !== window.location.hostname) {
+      document.cookie = `${cookieName}=; ${expiry} domain=.${baseDomain};`
+    }
+  }
+
   /**
    * Sets the active language and updates the Google Translate widget
    * @param {string} lang - The language code to set
@@ -71,10 +88,11 @@ export default defineNuxtPlugin((nuxtApp) => {
       return
     }
 
+    // Handle reset to default language
     if (lang === defaultLanguage) {
-      // Clear the googtrans cookie and reload the page to restore original content
-      document.cookie = 'googtrans=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT'
-      // Optionally reload only if a translation had been applied
+      // Clear any existing googtrans cookies to prevent issues with reloading
+      deleteGoogtransCookie()
+      // Only reload if the language was actually changed
       if (activeLanguage.value !== defaultLanguage) {
         location.reload()
       }
@@ -82,11 +100,12 @@ export default defineNuxtPlugin((nuxtApp) => {
       return
     }
 
+    // For switching to a non-default language
     if (lang !== activeLanguage.value) {
       activeLanguage.value = lang
       updateGoogleTranslate(lang)
 
-      // Set googtrans cookie
+      // Set the googtrans cookie for the new language
       if (import.meta.client) {
         document.cookie = `googtrans=/en/${lang};path=/;`
       }
@@ -135,15 +154,17 @@ export default defineNuxtPlugin((nuxtApp) => {
   const loadGoogleTranslate = () => {
     if (!import.meta.client || isLoaded.value) return
 
+    // Ensure script hasn't been loaded before
+    if (document.querySelector('#google-translate-script')) return
+
+    // Define `googleTranslateElementInit` before loading
+    window.googleTranslateElementInit = initializeGoogleTranslate
+
     // Already loaded?
     if (window.google?.translate?.TranslateElement) {
       initializeGoogleTranslate()
       return
     }
-    if (document.querySelector('#google-translate-script')) return
-
-    // Define `googleTranslateElementInit` before loading
-    window.googleTranslateElementInit = initializeGoogleTranslate
 
     // Create and append script
     const script = document.createElement('script')
@@ -152,8 +173,14 @@ export default defineNuxtPlugin((nuxtApp) => {
     script.async = true
     script.defer = true
 
-    script.onload = initializeGoogleTranslate // Ensure it's initialized when loaded
-    script.onerror = () => console.error('[nuxt-google-translate] Failed to load Google Translate script.')
+    script.onload = () => {
+      // console.log('[nuxt-google-translate] Google Translate script loaded successfully.')
+      initializeGoogleTranslate() // Initialize on load
+    }
+
+    script.onerror = () => {
+      console.error('[nuxt-google-translate] Failed to load Google Translate script.')
+    }
 
     document.body.appendChild(script)
   }
