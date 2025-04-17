@@ -2,6 +2,18 @@
 # Changelog
 
 
+## v1.3.2
+
+[compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v1.3.1...v1.3.2)
+
+### 🩹 Fixes
+
+- Improve language switching and cookie handling for Google Translate ([9338c7d](https://github.com/nexoscreation/nuxt-google-translate/commit/9338c7d))
+
+### ❤️ Contributors
+
+- Nexoscreator ([@nexoscreator](http://github.com/nexoscreator))
+
 ## v1.3.1
 
 [compare changes](https://github.com/nexoscreation/nuxt-google-translate/compare/v1.3.0...v1.3.1)
