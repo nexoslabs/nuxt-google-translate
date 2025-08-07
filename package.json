@@ -1,6 +1,6 @@
 {
   "name": "nuxt-google-translate",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "A simple Nuxt module that integrates the Google Translate widget into your Nuxt.js application, allowing seamless multilingual support without requiring an API key.",
   "repository": {
     "type": "git",
@@ -11,18 +11,16 @@
   "exports": {
     ".": {
       "types": "./dist/types.d.mts",
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.d.mts"
+      "import": "./dist/module.mjs"
     }
   },
-  "main": "./dist/module.d.mts",
-  "types": "./dist/types.d.mts",
+  "main": "./dist/module.mjs",
   "files": [
     "dist"
   ],
   "scripts": {
     "prepack": "nuxt-module-build build",
-    "dev": "nuxi dev playground",
+    "dev": "npm run dev:prepare && nuxi dev playground",
     "dev:generate": "nuxi generate playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
