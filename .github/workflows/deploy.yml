@@ -45,8 +45,8 @@ jobs:
      - name: Build Playground
        run: npm run dev:build
 
-     - name: Generate Playground
-       run: npm run dev:generate
+    #  - name: Generate Playground
+    #    run: npm run dev:generate
 
      - name: Setup Pages
        uses: actions/configure-pages@v5
