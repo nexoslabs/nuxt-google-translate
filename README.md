@@ -1,8 +1,8 @@
 [![npm version](https://img.shields.io/npm/v/nuxt-google-translate?style=flat-square&color=cyan)](https://www.npmjs.com/package/nuxt-google-translate)
 [![npm downloads](https://img.shields.io/npm/dt/nuxt-google-translate?style=flat-square&color=cyan)](https://www.npmjs.com/package/nuxt-google-translate)
-[![GitHub stars](https://img.shields.io/github/stars/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/nuxt-google-translate)
-[![GitHub code](https://img.shields.io/github/languages/code-size/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/nuxt-google-translate)
-[![GitHub license](https://img.shields.io/github/license/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoscreation/nuxt-google-translate)
+[![GitHub stars](https://img.shields.io/github/stars/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoslabs/nuxt-google-translate)
+[![GitHub code](https://img.shields.io/github/languages/code-size/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoslabs/nuxt-google-translate)
+[![GitHub license](https://img.shields.io/github/license/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoslabs/nuxt-google-translate)
 
 ---
 
@@ -71,8 +71,8 @@ For more advanced configurations, check out the [📘 Full Documentation](https:
 
 ## 🔗 Useful Links
 
-[![Website Demo](https://img.shields.io/badge/Web-Demo-blue?style=for-the-badge&logo=google-chrome)](https://nexoscreation.github.io/nuxt-google-translate/)
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-green?style=for-the-badge&logo=github)](https://github.com/nexoscreation/nuxt-google-translate)
+[![Website Demo](https://img.shields.io/badge/Web-Demo-blue?style=for-the-badge&logo=google-chrome)](https://nuxt-google-translate.vercel.app/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-green?style=for-the-badge&logo=github)](https://github.com/nexoslabs/nuxt-google-translate)
 [![YouTube Video](https://img.shields.io/badge/YouTube-Video-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=vapgAOjdSMQ)
 [![Documentation](https://img.shields.io/badge/Documentation-Read%20Now-blue?style=for-the-badge&logo=readthedocs)](https://nexoscreation.tech/docs/resources/google-translate)
 
@@ -109,11 +109,11 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 ## 📬 **Contact & Community**
 
 💬 Join us on **Discord**: [Click Here](https://discord.gg/H7pVc9aUK2)  
-🐦 **Follow on Twitter**: [@nexoscreation](https://twitter.com/nexoscreation)  
+🐦 **Follow on Twitter**: [@nexoscreation](https://twitter.com/nexoslabs)  
 📧 **Email**: [contact@nexoscreation.tech](mailto:contact@nexoscreation.tech)
 
 <p align="center">
-  Made with ❤️ by the Nexos Creation Team
+  Made with ❤️ by the Nexos Labs Team
 </p>
 
 <p align="center">
