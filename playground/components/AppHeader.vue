@@ -65,7 +65,7 @@ const toggleMobileMenu = () => {
       <nav class="right">
         <LanguageSelector />
         <a
-          href="https://github.com/nexoscreation/nuxt-google-translate"
+          href="https://github.com/nexoslabs/nuxt-google-translate"
           target="_blank"
           rel="noopener noreferrer"
           class="github-link"
@@ -90,7 +90,7 @@ const toggleMobileMenu = () => {
     >
       <LanguageSelector />
       <a
-        href="https://github.com/nexoscreation/nuxt-google-translate"
+        href="https://github.com/nexoslabs/nuxt-google-translate"
         target="_blank"
         rel="noopener noreferrer"
         class="github-link"

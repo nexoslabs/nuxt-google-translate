@@ -8,7 +8,7 @@ const currentYear = computed(() => new Date().getFullYear())
 
 const footerLinks = [
   { name: 'Documentation', href: 'https://www.nexoscreation.tech/docs/resources/google-translate', icon: BookOpenIcon },
-  { name: 'GitHub', href: 'https://github.com/nexoscreation/nuxt-google-translate', icon: GithubIcon },
+  { name: 'GitHub', href: 'https://github.com/nexoslabs/nuxt-google-translate', icon: GithubIcon },
   { name: 'Support', href: 'https://discord.com/invite/8Hbh5Y9CMd', icon: LifeBuoyIcon },
 ]
 
@@ -38,7 +38,7 @@ const handleNavigation = (href: string) => {
     <div class="footer-content">
       <div class="footer-left">
         <p class="copyright">
-          &copy; {{ currentYear }} Nexos Creation
+          &copy; {{ currentYear }} Nexos Labs
           <HeartIcon
             class="heart-icon"
             :class="{ heartbeat: showHeartbeat }"

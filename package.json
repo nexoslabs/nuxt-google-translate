@@ -4,7 +4,7 @@
   "description": "A simple Nuxt module that integrates the Google Translate widget into your Nuxt.js application, allowing seamless multilingual support without requiring an API key.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nexoscreation/nuxt-google-translate.git"
+    "url": "git+https://github.com/nexoslabs/nuxt-google-translate.git"
   },
   "license": "MIT",
   "type": "module",
@@ -62,7 +62,7 @@
   ],
   "author": "nexoscreator",
   "bugs": {
-    "url": "https://github.com/nexoscreation/nuxt-google-translate/issues"
+    "url": "https://github.com/nexoslabs/nuxt-google-translate/issues"
   },
-  "homepage": "https://github.com/nexoscreation/nuxt-google-translate#readme"
+  "homepage": "https://github.com/nexoslabs/nuxt-google-translate#readme"
 }

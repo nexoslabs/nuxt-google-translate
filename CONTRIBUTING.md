@@ -13,7 +13,7 @@ Click the **"Fork"** button on the top right corner of the repository page. This
 Clone your forked repository to your local machine:
 
 ```bash
-git clone https://github.com/nexoscreation/nuxt-google-translate.git
+git clone https://github.com/nexoslabs/nuxt-google-translate.git
 cd nuxt-google-translate
 ```
 

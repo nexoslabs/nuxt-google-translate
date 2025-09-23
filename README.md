@@ -1,8 +1,8 @@
 [![npm version](https://img.shields.io/npm/v/nuxt-google-translate?style=flat-square&color=cyan)](https://www.npmjs.com/package/nuxt-google-translate)
 [![npm downloads](https://img.shields.io/npm/dt/nuxt-google-translate?style=flat-square&color=cyan)](https://www.npmjs.com/package/nuxt-google-translate)
-[![GitHub stars](https://img.shields.io/github/stars/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoslabs/nuxt-google-translate)
-[![GitHub code](https://img.shields.io/github/languages/code-size/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoslabs/nuxt-google-translate)
-[![GitHub license](https://img.shields.io/github/license/nexoscreation/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoslabs/nuxt-google-translate)
+[![GitHub stars](https://img.shields.io/github/stars/nexoslabs/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoslabs/nuxt-google-translate)
+[![GitHub code](https://img.shields.io/github/languages/code-size/nexoslabs/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoslabs/nuxt-google-translate)
+[![GitHub license](https://img.shields.io/github/license/nexoslabs/nuxt-google-translate.svg?style=flat-square&color=cyan)](https://github.com/nexoslabs/nuxt-google-translate)
 
 ---
 
@@ -109,7 +109,7 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 ## 📬 **Contact & Community**
 
 💬 Join us on **Discord**: [Click Here](https://discord.gg/H7pVc9aUK2)  
-🐦 **Follow on Twitter**: [@nexoscreation](https://twitter.com/nexoslabs)  
+🐦 **Follow on Twitter**: [@nexoslabs](https://twitter.com/nexoslabs)  
 📧 **Email**: [contact@nexoscreation.tech](mailto:contact@nexoscreation.tech)
 
 <p align="center">
@@ -117,5 +117,5 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 </p>
 
 <p align="center">
-  <a href="https://github.com/nexoscreation/nuxt-google-translate/stargazers">⭐ Star us on GitHub!</a>
+  <a href="https://github.com/nexoslabs/nuxt-google-translate/stargazers">⭐ Star us on GitHub!</a>
 </p>
