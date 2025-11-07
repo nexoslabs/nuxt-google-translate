@@ -26,36 +26,37 @@
 
 ## 🚀 Quick Start
 
-Follow these steps to set up **Nuxt Google Translate** in your Nuxt project. 
+Follow these steps to set up **Nuxt Google Translate** in your Nuxt project.
 
 ### 🔧 **Prerequisites**
 
-- Ensure you have **Node.js** and **npm** installed.  
-- A Nuxt 3 project ready to go.  
+- Ensure you have **Node.js** and **npm** installed.
+- A Nuxt 3 project ready to go.
 
 ### ⚡ **Installation Steps**
 
 1. **Install the Module**  
-   Add the dependency to your project:  
+   Add the dependency to your project:
+
    ```bash
    npm install nuxt-google-translate
-   ```  
+   ```
 
-3. **Use the Component**  
-   Add the `<GoogleTranslate />` component to your app layout or `app.vue`:  
+2. **Use the Component**  
+   Add the `<GoogleTranslate />` component to your app layout or `app.vue`:
    ```vue
    <template>
      <ClientOnly>
-       <GoogleTranslate />       
+       <GoogleTranslate />
      </ClientOnly>
    </template>
-   ```  
+   ```
 
-That's it! Your Nuxt app now supports multiple languages with Google Translate. 🎉 
+That's it! Your Nuxt app now supports multiple languages with Google Translate. 🎉
 
 ### 🎯 Usage
 
-You can also use the `<LanguageSelector />` component for a dropdown menu to switch languages:  
+You can also use the `<LanguageSelector />` component for a dropdown menu to switch languages:
 
 ```vue
 <template>
@@ -65,7 +66,7 @@ You can also use the `<LanguageSelector />` component for a dropdown menu to swi
 </template>
 ```
 
-For more advanced configurations, check out the [📘 Full Documentation](https://nexoscreation.tech/docs/resources/google-translate). 🚀  
+For more advanced configurations, check out the [📘 Full Documentation](https://nexoscreation.tech/docs/resources/google-translate).
 
 ---
 

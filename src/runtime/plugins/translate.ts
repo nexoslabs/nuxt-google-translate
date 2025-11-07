@@ -6,14 +6,16 @@ import { defineNuxtPlugin, useRuntimeConfig } from '#app'
  * @interface GoogleTranslateConfig
  * @property {string} pageLanguage - The default language of the page
  * @property {string} [includedLanguages] - Comma-separated list of supported languages
- * @property {string} layout - The layout style of the translate widget
  * @property {boolean} autoDisplay - Whether to automatically display the widget
+ * @property {boolean} multilanguagePage - Indicates if the page has multiple languages
+ * @property {string} layout - The layout style of the translate widget
  */
 interface GoogleTranslateConfig {
   pageLanguage: string
   includedLanguages?: string
-  layout: string
   autoDisplay: boolean
+  multilanguagePage: boolean
+  layout: string
 }
 
 /**
@@ -138,8 +140,9 @@ export default defineNuxtPlugin((nuxtApp) => {
       {
         pageLanguage: defaultLanguage,
         includedLanguages: supportedLanguages.join(','),
-        layout: window.google.translate.TranslateElement.InlineLayout.VERTICAL,
         autoDisplay: false,
+        multilanguagePage: false,
+        layout: window.google.translate.TranslateElement.InlineLayout.VERTICAL,
       },
       'nuxt_translate_element',
     )

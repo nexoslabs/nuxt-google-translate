@@ -31,12 +31,14 @@
 :global(.goog-te-gadget) {
   display: inline-block !important;
   opacity: 0;
-  /* Hide it while still working */
-  pointer-events: none;
+  pointer-events: none !important;
 }
 
 /* Hide unnecessary Google Translate UI elements */
 :global(.goog-te-banner-frame),
+:global(.goog-te-spinner),
+:global(.goog-te-balloon-frame),
+:global(.goog-te-menu-value),
 :global(.goog-te-gadget-simple),
 :global(.goog-gt-tt),
 :global(.goog-te-combo),
@@ -55,6 +57,7 @@
 :global(.VIpgJd-ZVi9od-aZ2wEe-wOHMyf-ti6hGc),
 :global(iframe.VIpgJd-ZVi9od-ORHb-OEVmcd) {
   display: none !important;
+  pointer-events: none !important;
 }
 
 :global(.VIpgJd-ZVi9od-ORHb) *,
@@ -62,7 +65,8 @@
 :global(.VIpgJd-ZVi9od-xl07Ob) *,
 :global(.VIpgJd-ZVi9od-vH1Gmf) *,
 :global(.VIpgJd-ZVi9od-l9xktf) * {
-  display: none;
+  display: none !important;
+  pointer-events: none !important;
 }
 
 :global(.VIpgJd-yAWNEb-hvhgNd),
@@ -84,13 +88,22 @@
 :global(.VIpgJd-ZVi9od-l9xktf-fmcmS),
 :global(.VIpgJd-ZVi9od-l9xktf-OEVmcd),
 :global(.VIpgJd-ZVi9od-vH1Gmf-ibnC6b-gk6SMd),
-:global(.VIpgJd-yAWNEb-VIpgJd-fmcmS-sn54Q),
 :global(.VIpgJd-yAWNEb-r4nke),
 :global(.VIpgJd-yAWNEb-yAWNEb-Vy2Aqc-pbTTYe),
 :global(.VIpgJd-ZVi9od-aZ2wEe-Jt5cK),
 :global(.VIpgJd-ZVi9od-aZ2wEe-OiiCO),
 :global(.VIpgJd-ZVi9od-aZ2wEe),
 :global(.VIpgJd-ZVi9od-aZ2wEe-OiiCO-ti6hGc) {
-  display: none;
+  display: none !important;
+  pointer-events: none !important;
+}
+
+:global(font .VIpgJd-yAWNEb-VIpgJd-fmcmS-sn54Q) {
+  display: block !important;
+  background-color: transparent !important;
+  box-sizing: content-box !important;
+  box-shadow: none !important;
+  position: relative !important;
+  -moz-box-sizing: revert !important;
 }
 </style>
