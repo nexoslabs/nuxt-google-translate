@@ -2,6 +2,24 @@
 # Changelog
 
 
+## v1.3.8
+
+[compare changes](https://github.com/nexoslabs/nuxt-google-translate/compare/v1.3.5...v1.3.8)
+
+### 🩹 Fixes
+
+- Broken links ([381b458](https://github.com/nexoslabs/nuxt-google-translate/commit/381b458))
+
+### 🏡 Chore
+
+- **release:** V1.3.4 ([88e2094](https://github.com/nexoslabs/nuxt-google-translate/commit/88e2094))
+- **release:** V1.3.5 ([0b204d2](https://github.com/nexoslabs/nuxt-google-translate/commit/0b204d2))
+- Resolve dependency issue ([68bbc57](https://github.com/nexoslabs/nuxt-google-translate/commit/68bbc57))
+
+### ❤️ Contributors
+
+- Nexoscreator ([@nexoscreator](https://github.com/nexoscreator))
+
 ## v1.3.5
 
 [compare changes](https://github.com/nexoslabs/nuxt-google-translate/compare/v1.3.4...v1.3.5)
